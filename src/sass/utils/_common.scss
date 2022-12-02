@@ -1,18 +1,37 @@
 @font-face {
-    font-family: Roboto-Regular;
-    src: url(/src/fonts/Roboto-Regular.ttf);
+    font-family: 'Roboto';
+    src: 
+        local('Roboto'),
+        url('/src/fonts/Roboto-Regular.woff2') format('woff2'),
+        url('/src/fonts/Roboto-Regular.woff') format('woff'),
+        url('/src/fonts/Roboto-Regular.ttf') format('truetype'),
+        url('/src/fonts/Roboto-Regular.svg#Roboto-Regular') format('svg');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
 }
+
 @font-face {
-    font-family:Roboto-Medium;
-    src: url(/src/fonts/Roboto-Medium.ttf);
+    font-family: 'Roboto';
+    src: 
+        local('Roboto'),
+        url('/src/fonts/Roboto-Medium.woff2') format('woff2'),
+        url('/src/fonts/Roboto-Medium.woff') format('woff'),
+        url('/src/fonts/Roboto-Medium.ttf') format('truetype'),
+        url('/src/fonts/Roboto-Medium.svg#Roboto-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
 }
+
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
 :root{
+--primary-font-family: 'Roboto';
 --white: #ffffff;
 --darkColor: #000000;
 --textFooterColor: #545454;
---footerColor: #7f7f7f;
+--footerColor: #F7F7F7;
 --activeColor: #ff6b08;
 --redColor: #ff001b;
 }

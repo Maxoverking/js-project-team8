@@ -2,15 +2,30 @@ html {
   scroll-behavior: smooth;
 }
 body{
-    font-family: Roboto-Medium ;
+    margin: 0;
+    font-family: var(--primary-font-family), Verdana, Tahoma, arial, sans-serif;;
     font-weight: 500;
 }
+
 .container {
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 32px;
-  padding-right: 32px;
+  max-width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+  max-width: 320px;
+
+  @media (min-width: 768px) {
+    padding-left: 32px;
+    padding-right: 32px;
+    max-width: 768px;
+  }
+
+
+  @media (min-width: 1280px) {
+    max-width: 1280px;
+  }
 }
+
 img {
   display: block;
   max-width: 100%;

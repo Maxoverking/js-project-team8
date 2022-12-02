@@ -1,4 +1,22 @@
+.footer{
+   background-color: var(--footerColor);
+}
 
+.footer-container{
+    padding-top: 29px;
+    padding-bottom: 29px;
+}
+
+.about-company{
+    color: var(--textFooterColor);
+    font-weight: 400;
+    line-height: 1.17;
+    text-align:  center;
+}
+
+.svg-heart {
+    fill: var(--activeColor);
+}
 
 
 
