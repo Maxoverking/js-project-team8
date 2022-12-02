@@ -1,2 +1,14 @@
-@import './common';
-@import './example';
+@import './utils/common';
+@import './utils/basic-set-up';
+
+@import './components/header-home';
+@import './components/filmCards-home';
+
+@import './components/modal';
+
+@import './components/header-library';
+@import './components/filmCards-library';
+
+@import './components/pagination';
+
+@import './components/footer';
