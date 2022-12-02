@@ -1,5 +1,4 @@
 import './sass/index.scss'
-import './js/apiRequest.js'
 import './js/header-home.js'
 import './js/filmCards-home.js'
 import './js/pagination.js'
