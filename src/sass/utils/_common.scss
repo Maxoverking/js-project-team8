@@ -1,0 +1,19 @@
+@font-face {
+    font-family: Roboto-Regular;
+    src: url(/src/fonts/Roboto-Regular.ttf);
+}
+@font-face {
+    font-family:Roboto-Medium;
+    src: url(/src/fonts/Roboto-Medium.ttf);
+}
+@import '~node_modules/modern-normalize/modern-normalize.css';
+
+:root{
+--white: #ffffff;
+--darkColor: #000000;
+--textFooterColor: #545454;
+--footerColor: #7f7f7f;
+--activeColor: #ff6b08;
+--redColor: #ff001b;
+}
+

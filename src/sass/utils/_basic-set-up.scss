@@ -1,0 +1,34 @@
+html {
+  scroll-behavior: smooth;
+}
+body{
+    font-family: Roboto-Medium ;
+    font-weight: 500;
+}
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  cursor: pointer;
+}
+
+h2,h3,h4,p{
+  margin: 0;
+  padding: 0;
+}
+
+ul,li{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
