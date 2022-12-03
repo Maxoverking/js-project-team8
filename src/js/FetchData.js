@@ -23,10 +23,10 @@ export default class FetchData {
       });
   }
 
-  getSearchData(search) {
+  getSearchData(search, page = 1) {
     return axios
       .get(this.#commonURL + this.#searchPath, {
-        params: { ...this.#params, query: `${search}` },
+        params: { ...this.#params, query: `${search}`, page },
         transformResponse: transformResponseFunc,
       })
       .then(pruningResponse)
@@ -39,7 +39,6 @@ export default class FetchData {
 function transformResponseFunc(response) {
   try {
     response = JSON.parse(response);
-console.log(response);
     results = response.results.map(movieObj => {
       movieObj.backdrop_path = `https://image.tmdb.org/t/p/w500${movieObj.backdrop_path}`;
       movieObj.poster_path = `https://image.tmdb.org/t/p/w500${movieObj.poster_path}`;
