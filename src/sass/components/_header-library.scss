@@ -11,29 +11,29 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background-image: url("/src/images/bg-images/bg-mobile@x1.jpg");
+    background-image: url("/src/images/bg-images/lb-mobile@x1.jpg");
 
     @media (min-device-pixel-ratio: 2),
     (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-        background-image: url("/src/images/bg-images/bg-mobile@x2.jpg");
+        background-image: url("/src/images/bg-images/lb-mobile@x2.jpg");
     }
 
     @media (min-width: 768px) {
         height: 216px;
-        background-image: url("/src/images/bg-images/bg-tablet@x1.jpg");
+        background-image: url("/src/images/bg-images/lb-tablet@x1.jpg");
 
         @media (min-device-pixel-ratio: 2),
         (-webkit-min-device-pixel-ratio: 2),
         (min-resolution: 192dpi),
         (min-resolution: 2dppx) {
-            background-image: url("/src/images/bg-images/bg-tablet@x2.jpg");
+            background-image: url("/src/images/bg-images/lb-tablet@x2.jpg");
         }
     }
 
     @media (min-width: 1280px) {
-        background-image: url("/src/images/bg-images/bg-desktop@x1.jpg");
+        background-image: url("/src/images/bg-images/lb-desktop@x1.jpg");
 
 
 
@@ -41,7 +41,7 @@
         (-webkit-min-device-pixel-ratio: 2),
         (min-resolution: 192dpi),
         (min-resolution: 2dppx) {
-            background-image: url("/src/images/bg-images/bg-desktop@x2.jpg");
+            background-image: url("/src/images/bg-images/lb-desktop@x2.jpg");
         }
     }
 }
@@ -59,9 +59,11 @@
 .site-nav__logo {
     display: flex;
     align-items: center;
-    padding-top: 39px;
+    padding-top: 40px;
     padding-bottom: 40px;
     padding-right: 6px;
+
+ 
 }
 
 .logo-text {
@@ -100,10 +102,56 @@
         background-color: var(--redColor);
         width: 100%;
         height: 3px;
-
     }
+}
+
+.header__button {
+    display: flex;
+    justify-content: center;
 
 }
 
+.button-item + .button-item {
+    margin-left: 40px;
+
+    @media (min-width: 768px) {
+            margin-left: 32px;
+        }
+    
+                @media (min-width: 1280px) {
+                    margin-left: 16px;
+                }
+}
+
+.header__button{
+        margin-top: 20px;
+            margin-bottom: 62px;
+
+    @media (min-width: 768px) {
+            margin-top: 0px;
+        }
+}
+
+.button-switches {
+    text-transform: uppercase;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    min-width: 130px;
+
+    color: var(--white);
+    background-color: inherit;
+    border: 1px solid var(--white);
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+
+    &:hover,
+    &:focus {
+        background-color: var(--buttonActive);
+        border: none;
+        }
+
+}
 
 

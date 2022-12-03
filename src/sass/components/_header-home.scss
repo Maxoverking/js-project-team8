@@ -55,9 +55,13 @@
 .site-nav__logo{
     display: flex;
     align-items: center;
-    padding-top: 39px;
+    padding-top: 40px;
     padding-bottom: 40px;
     padding-right: 6px;
+
+        @media (min-width: 768px) {
+                    padding-top: 45px;
+            }
 }
 
 .logo-text{
@@ -167,8 +171,12 @@
 
 .button-search{
     position: absolute;
-    right: 1px;
-    top: 1px;
+    background-color: inherit;
+    border: none;
+    padding-right: 0px;
+    padding-left: 10px;
+    right: 0px;
+    top: 0px;
 }
 
 .label-hidden {
@@ -181,6 +189,7 @@
     clip: rect(0 0 0 0);
     overflow: hidden;
 }
+
 
 .error-search {
     display: flex;
