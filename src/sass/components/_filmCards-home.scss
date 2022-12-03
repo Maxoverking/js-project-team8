@@ -1,0 +1,79 @@
+.cards__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 0 40px 0;
+
+    @media screen and (min-width: 768px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 32px;
+        padding: 60px 0;
+    }
+    @media screen and (min-width: 1280px) {
+        gap: 32px 16px;
+    }
+}
+.cards__item {
+    flex-basis: calc((100% - 32px) / 2);
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    &:hover,
+    &:focus {
+        display: block;
+        transform: scale(1.015);
+        box-shadow: 4px 3px 12px -1px rgba(17, 16, 16, 0.5);
+    }
+    @media screen and (min-width: 1280px) {
+        flex-basis: calc((100% - 32px) / 3);
+    }
+}
+
+
+
+.cards__img {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    //max-width: 280px;
+    border-radius: 5px;
+
+    @media screen and (min-width: 768px) {
+        max-width: 336px;
+        height: 455px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        max-width: 395px;
+        height: 574px;
+    }
+}
+
+.cards__text {
+    margin-top: 10px;
+}
+
+.cards__name{
+    display: inline;
+    position: relative;
+    font-size: 12px;
+    line-height: 1.33;
+    color: var(--darkColor);
+    text-transform: uppercase;
+    @media screen and (min-width: 1280px) {
+        font-size: 20px;
+        line-height: 1.2;
+    }
+}
+
+.cards__genres {
+    color: var(--activeColor);
+    text-transform: none;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.3333;
+    @media screen and (min-width: 1280px) {
+        font-size: 20px;
+        line-height: 1.2;
+    }
+}
