@@ -6,3 +6,8 @@ import './js/pagination.js'
 import './js/modal.js'
 import './js/header-library.js'
 import './js/filmCards-library.js'
+
+import FetchData from './js/FetchData.js';
+
+const movieGalleryFetch = new FetchData();
+
