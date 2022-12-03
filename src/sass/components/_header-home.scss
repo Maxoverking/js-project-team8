@@ -55,7 +55,7 @@
 .site-nav__logo{
     display: flex;
     align-items: center;
-    padding-top: 40px;
+    padding-top: 39px;
     padding-bottom: 40px;
     padding-right: 6px;
 }
@@ -113,7 +113,15 @@
 .search-form{
     display: flex;
     justify-content: center;
+    margin-top: 14px;
+
+    @media (min-width: 768px) {
+            margin-top: 0px;
+        }
+
+    
 }
+ 
 
 .search-form__input{
     position: relative;
@@ -131,7 +139,29 @@
 
 .search-form__input-field{
     width: 100%;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.17;
+    color: var(--white);
 
+
+    background-color: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 0.5px solid coral;
+
+    &:focus {
+            outline: 0;
+            outline-offset: 0;
+            border: 0.5px solid var(--white);
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+    &::placeholder{
+        color: var(--white);
+    }
     
 }
 
@@ -156,7 +186,22 @@
     display: flex;
     justify-content: center;
     visibility: hidden;
+    margin-top: 16px;
+    font-weight: 400;
+    font-size: 14;
     color: var(--redColor);
+    line-height: 1.17;
+
+
+    @media (min-width: 768px) {
+            margin-top: 20px;
+        }
+    
+        @media (min-width: 1280px) {
+            margin-top: 20px;
+        }
+    
+
 }
 
 .visible {
