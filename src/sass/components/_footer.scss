@@ -17,6 +17,21 @@
 .svg-heart {
     fill: var(--activeColor);
 }
+[data-modal-btn]{
+
+    padding: 0;
+    font-weight: 400;
+    border: none;
+    background-color: var(--footerColor);
+    color: var(--textFooterColor);
+    background: linear-gradient(to left, #4ae7a0, #f9dd94 100%);
+    background-position: 0 100%;
+    background-size: 100% 2px;
+    background-repeat: repeat-x;
+}
+// [data-modal-btn]:hover { 
+//     text-decoration: underline;
+//  }
 
 
 

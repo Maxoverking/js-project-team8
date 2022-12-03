@@ -6,11 +6,14 @@ import './js/pagination.js';
 import './js/modal.js';
 import './js/header-library.js';
 import './js/filmCards-library.js';
+import './js/footer-modal.js';
+
 //Это пример его раскоментить посмотреть что приходит
 
 // import FetchData from './js/FetchData.js';
 
 // const movieGalleryFetch = new FetchData();
+
 // movieGalleryFetch
 //   .getTrendingData(1)
 //   .then(response => console.log('trend',response))
