@@ -10,15 +10,16 @@ export default class FetchData {
   constructor() {
     this.#params.api_key = this.#API_KEY;
   }
-
+  // возвращает промис запроса на популярные фильмы
   getTrendingData(page = 1) {
     return axios
       .get(this.#commonURL + this.#trendingPath, {
         params: { ...this.#params, page },
         transformResponse: transformResponseFunc,
       })
+      .then(pruningResponse)
       .catch(e => {
-        return e.response; // написать middleware для обработки ошибок и вывода их в HEADER
+        console.log('getTrendingData ERROR - ' + e.message); // написать middleware для обработки ошибок и вывода их в HEADER
       });
   }
 
@@ -28,8 +29,9 @@ export default class FetchData {
         params: { ...this.#params, query: `${search}` },
         transformResponse: transformResponseFunc,
       })
+      .then(pruningResponse)
       .catch(e => {
-        return e.response; // написать middleware для обработки ошибок и вывода их в HEADER
+        console.log('getSearchData ERROR - ' + e.message); // написать middleware для обработки ошибок и вывода их в HEADER
       });
   }
 }
@@ -37,13 +39,18 @@ export default class FetchData {
 function transformResponseFunc(response) {
   try {
     response = JSON.parse(response);
+console.log(response);
     results = response.results.map(movieObj => {
       movieObj.backdrop_path = `https://image.tmdb.org/t/p/w500${movieObj.backdrop_path}`;
       movieObj.poster_path = `https://image.tmdb.org/t/p/w500${movieObj.poster_path}`;
       return movieObj;
     });
   } catch (error) {
-    //заглушка
+    response.results = [];
   }
   return response;
+}
+
+function pruningResponse({ data, status, statusText }) {
+  return { data, status, statusText };
 }
