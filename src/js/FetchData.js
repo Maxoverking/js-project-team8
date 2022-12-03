@@ -24,8 +24,7 @@ export default class FetchData {
   }
 
   getSearchData(search, page = 1) {
-    return axios
-      .get(this.#commonURL + this.#searchPath, {
+    return axios.get(this.#commonURL + this.#searchPath, {
         params: { ...this.#params, query: `${search}`, page },
         transformResponse: transformResponseFunc,
       })
