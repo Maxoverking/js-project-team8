@@ -59,6 +59,7 @@ function transformResponseFunc(response) {
       return movieObj;
     });
   } catch (error) {
+    console.log("ошибка здесь", error);
     response.results = [];
   }
   return response;
