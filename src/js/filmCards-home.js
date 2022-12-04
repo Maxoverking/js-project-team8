@@ -17,7 +17,7 @@ movieGalleryFetch
     });
 
 //Функция создания карточки на странице Home
-export function createCard(data) {
+export default function createCard(data) {
     const markup = data.map(obj => {
         const { id, poster_path, title, release_date, genre_ids } = obj;
         // console.log(obj);
@@ -57,7 +57,7 @@ function getShortName(string) {
 const { genres } = allGenres;
 export function findGenresOfMovie(ids) {
     const arr = ids.flatMap(id => genres.filter(element => element.id === id));
-    const movieGenres = arr.map(el => el.name);
+    let movieGenres = arr.map(el => el.name);
     if (movieGenres.length > 2) {
         const removedGenres = movieGenres.splice(0, 2);
         removedGenres.push('Other');

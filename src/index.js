@@ -8,6 +8,7 @@ import './js/modal.js';
 import './js/header-library.js';
 import './js/filmCards-library.js';
 import './js/footer-modal.js';
+import './js/function-search'
 
 //Это пример его раскоментить посмотреть что приходит
 
