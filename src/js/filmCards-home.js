@@ -1,7 +1,7 @@
 import allGenres from './genres.json';
 import FetchData from './FetchData.js';
 const movieGalleryFetch = new FetchData();
-
+const cardsList = document.querySelector('.cards__list');
 // Получаем данные
 // movieGalleryFetch
 // .getTrendingData()
@@ -37,7 +37,7 @@ wait()
         console.log(err.message);
     });
 
-const cardsList = document.querySelector('.cards__list');
+
 
 //Функция создания карточки на странице Home
 export function createCard(data){
