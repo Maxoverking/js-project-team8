@@ -13,14 +13,29 @@ const movieGalleryFetch = new FetchData();
 //     console.log(err.message);
 // }); 
 
-const exampleFn = async () => { 
-    const res = await movieGalleryFetch.getTrendingData();
-    const arr = res.data.results;
-    // console.log("🚀  arr", arr);
-    createCard(arr)
-    return arr
-}
-exampleFn()
+// const exampleFn = async () => { 
+//     const res = await movieGalleryFetch.getTrendingData();
+//     const arr = res.data.results;
+//     // console.log("🚀  arr", arr);
+//     createCard(arr)
+//     return arr
+// }
+// exampleFn()
+const wait = async () => {
+    const first = await movieGalleryFetch.getTrendingData();
+    return first;
+};
+
+
+wait()
+    .then(res => {
+        const data = res.data.results
+        createCard(data)
+    })
+    .catch(err => {
+        console.log('index err');
+        console.log(err.message);
+    });
 
 const cardsList = document.querySelector('.cards__list');
 
