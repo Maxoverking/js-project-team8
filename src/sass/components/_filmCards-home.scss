@@ -15,8 +15,7 @@
     }
 }
 .cards__item {
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
+    border-radius: 6px;
     flex-basis: calc((100% - 32px) / 2);
     transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
         transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
