@@ -15,17 +15,15 @@ const movieGalleryFetch = new FetchData();
 
 const exampleFn = async () => { 
     const res = await movieGalleryFetch.getTrendingData();
-    const arr = res.data.results;
+    const arr = res.data;
     createCard(arr)
-    console.log("🚀  arr", arr);
-    return arr
 }
-
 const cardsList = document.querySelector('.cards__list');
 
 //Функция создания карточки на странице Home
-export function createCard(data){
-    const markup = data.map(obj => {
+export function createCard(data) {
+    const dataArray = data.results
+    const markup = dataArray.map(obj => {
         const {id, poster_path, title, release_date, genre_ids} = obj;
         // console.log(obj);
     return `<li class="cards__item" id="${id}">
