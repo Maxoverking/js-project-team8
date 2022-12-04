@@ -17,7 +17,7 @@ export default class FetchData {
         params: { ...this.#params, page },
         transformResponse: transformResponseFunc,
       })
-        // .then(pruningResponse)
+        .then(pruningResponse)
       return response;
     } catch (e) {
       console.log('getTrendingData ERROR - ' + e.message);
@@ -51,9 +51,10 @@ export default class FetchData {
 }
 
 function transformResponseFunc(response) {
+  let results
   try {
-    response = JSON.parse(response);
-    results = response.results.map(movieObj => {
+    let dataResponse = JSON.parse(response);
+    results = dataResponse.results.map(movieObj => {
       movieObj.backdrop_path = `https://image.tmdb.org/t/p/w500${movieObj.backdrop_path}`;
       movieObj.poster_path = `https://image.tmdb.org/t/p/w500${movieObj.poster_path}`;
       return movieObj;
@@ -62,8 +63,11 @@ function transformResponseFunc(response) {
     console.log("ошибка здесь", error);
     response.results = [];
   }
-  return response;
+   console.log("🚀  results", results);
+  return results;
 }
+
+ 
 
 function pruningResponse({ data, status, statusText }) {
   return { data, status, statusText };

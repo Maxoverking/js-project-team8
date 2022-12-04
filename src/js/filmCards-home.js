@@ -9,6 +9,8 @@ movieGalleryFetch
     .getTrendingData(1)
     .then(res => {
         const data = res.data
+
+        console.log("🚀  data", data);
         createCard(data)
     })
     .catch(err => {
@@ -42,9 +44,9 @@ const cardsList = document.querySelector('.cards__list');
 
 //Функция создания карточки на странице Home
 export function createCard(data) {
-    const dataArray = data.results;
-    console.log(dataArray);
-    const markup = dataArray.map(obj => {
+    // const dataArray = data;
+    // console.log(dataArray);
+    const markup = data.map(obj => {
         const { id, poster_path, title, release_date, genre_ids } = obj;
         // console.log(obj);
         return `<li class="cards__item" id="${id}">
