@@ -18,7 +18,7 @@ form.addEventListener("submit", (e)=> {
        console.log('даные которые пришли',response.data);
        if(response.data.length == 0) {
         message.classList.add("visible");
-        setTimeout(()=> message.classList.remove("visible"), 3000)
+        setTimeout(()=> message.classList.remove("visible"), 4000)
        }
        else {
         cardsList.innerHTML = ""
