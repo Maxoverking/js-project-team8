@@ -4,27 +4,45 @@ const movieGalleryFetch = new FetchData();
 
 let currentPage = 1;
 // Получаем данные
-movieGalleryFetch
-.getTrendingData(currentPage)
-.then(res => {
+
+const wait = async () => {
+    const first = await movieGalleryFetch.getTrendingData(currentPage);
+    return first;
+};
+
+
+wait()
+    .then(res => {
         const data = res.data
         createCard(data)
-    }).catch(err => {
-    console.log('index err');
-    console.log(err.message);
-}); 
+    })
+    .catch(err => {
+        console.log('index err');
+        console.log(err.message);
+    });
+
+
+// movieGalleryFetch
+//     .getTrendingData(currentPage)
+//     .then(res => {
+//         const data = res.data
+//         createCard(data)
+//     }).catch(err => {
+//         console.log('index err');
+//         console.log(err.message);
+//     });
 
 const cardsList = document.querySelector('.cards__list');
 
 //Функция создания карточки на странице Home
-export function createCard(data){
+export function createCard(data) {
     // console.log("🚀  data", data);
     const dataArray = data.results;
     // console.log(dataArray);
     const markup = dataArray.map(obj => {
-        const {id, poster_path, title, release_date, genre_ids} = obj;
+        const { id, poster_path, title, release_date, genre_ids } = obj;
         // console.log(obj);
-    return `<li class="cards__item" id="${id}">
+        return `<li class="cards__item" id="${id}">
         <a class="cards__link">
             <img class="cards__img" src="https://image.tmdb.org/t/p/w400${poster_path}" alt="${title}" loading="lazy">
         </a>
@@ -36,12 +54,12 @@ export function createCard(data){
 
     // console.log(markup);
     cardsList.insertAdjacentHTML("beforeend", markup);
-    
+
 }
 
 //Функция для отображения года выпуска
-function createYear(data) { 
-    if(data) {
+function createYear(data) {
+    if (data) {
         return data.slice(0, 4);
     } else {
         return data = 'Not found';
@@ -51,10 +69,10 @@ function createYear(data) {
 //Функция которая обрезает название
 function getShortName(string) {
     if (string) {
-    if (string.length >= 32) {
-        return string.substr(0, 32) + '...';
-    }
-    return string;
+        if (string.length >= 32) {
+            return string.substr(0, 32) + '...';
+        }
+        return string;
     }
 }
 
@@ -67,7 +85,7 @@ export function findGenresOfMovie(ids) {
     if (movieGenres.length > 2) {
         const removedGenres = movieGenres.splice(0, 2);
         removedGenres.push('Other');
-    
+
         return removedGenres.join(', ');
     }
     if (movieGenres.length === 0) {
