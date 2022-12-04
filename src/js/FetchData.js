@@ -11,29 +11,27 @@ export default class FetchData {
     this.#params.api_key = this.#API_KEY;
   }
   // возвращает промис запроса на популярные фильмы
-  async getTrendingData(page = 1) {
-    try {
-      const result = await axios
-        .get(this.#commonURL + this.#trendingPath, {
-          params: { ...this.#params, page },
-          transformResponse: transformResponseFunc,
-        });
-      return pruningResponse(result);
-    } catch (e) {
-      console.log('getTrendingData ERROR - ' + e.message); // написать middleware для обработки ошибок и вывода их в HEADER
-    }
+  getTrendingData(page = 1) {
+    return axios
+      .get(this.#commonURL + this.#trendingPath, {
+        params: { ...this.#params, page },
+        transformResponse: transformResponseFunc,
+      })
+      .then(pruningResponse)
+      .catch(e => {
+        console.log('getTrendingData ERROR - ' + e.message); // написать middleware для обработки ошибок и вывода их в HEADER
+      });
   }
 
-  async getSearchData(search, page = 1) {
-    try {
-      const result = await axios.get(this.#commonURL + this.#searchPath, {
+  getSearchData(search, page = 1) {
+    return axios.get(this.#commonURL + this.#searchPath, {
         params: { ...this.#params, query: `${search}`, page },
         transformResponse: transformResponseFunc,
+      })
+      .then(pruningResponse)
+      .catch(e => {
+        console.log('getSearchData ERROR - ' + e.message); // написать middleware для обработки ошибок и вывода их в HEADER
       });
-      return pruningResponse(result);
-    } catch (e) {
-      console.log('getSearchData ERROR - ' + e.message); // написать middleware для обработки ошибок и вывода их в HEADER
-    }
   }
 }
 
