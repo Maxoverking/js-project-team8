@@ -17,7 +17,7 @@ export default class FetchData {
         params: { ...this.#params, page },
         transformResponse: transformResponseFunc,
       })
-        .then(pruningResponse)
+        // .then(pruningResponse)
       return response;
     } catch (e) {
       console.log('getTrendingData ERROR - ' + e.message);
