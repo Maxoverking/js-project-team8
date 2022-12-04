@@ -15,15 +15,18 @@ const movieGalleryFetch = new FetchData();
 
 const exampleFn = async () => { 
     const res = await movieGalleryFetch.getTrendingData();
-    const arr = res.data;
+    const arr = res.data.results;
+    console.log("🚀  arr", arr);
     createCard(arr)
+    return arr
 }
+exampleFn()
+
 const cardsList = document.querySelector('.cards__list');
 
 //Функция создания карточки на странице Home
-export function createCard(data) {
-    const dataArray = data.results
-    const markup = dataArray.map(obj => {
+export function createCard(data){
+    const markup = data.map(obj => {
         const {id, poster_path, title, release_date, genre_ids} = obj;
         // console.log(obj);
     return `<li class="cards__item" id="${id}">
@@ -77,4 +80,3 @@ export function findGenresOfMovie(ids) {
     }
     return movieGenres.join(', ');
 }
-exampleFn()
