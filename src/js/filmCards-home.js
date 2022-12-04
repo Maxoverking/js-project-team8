@@ -56,6 +56,7 @@ export function createCard(data) {
             </div>
         </li>`
     }).join("");
+    
 
     // console.log(markup);
     cardsList.insertAdjacentHTML("beforeend", markup);
