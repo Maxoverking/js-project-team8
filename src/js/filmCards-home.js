@@ -1,51 +1,23 @@
-
 import allGenres from './genres.json';
 import FetchData from './FetchData.js';
 
-
+const cardsList = document.querySelector('.cards__list');
 const movieGalleryFetch = new FetchData();
 
+// Получаем данные
 movieGalleryFetch
     .getTrendingData(1)
-    .then(res => {
-        const data = res.data
-
-        console.log("🚀  data", data);
-        createCard(data)
+    .then(response => {
+       console.log('даные которые пришли',response.data);
+        createCard(response.data)
     })
     .catch(err => {
         console.log('index err');
         console.log(err.message);
     });
 
-const cardsList = document.querySelector('.cards__list');
-
-
-// Получаем данные
-// movieGalleryFetch
-// .getTrendingData()
-// .then(res => {
-//         const data = res.data
-//         createCard(data)
-//     }).catch(err => {
-//     console.log('index err');
-//     console.log(err.message);
-// });
-
-// const exampleFn = async () => {
-//     const res = await movieGalleryFetch.getTrendingData();
-//     const arr = res.data.results;
-//     // console.log("🚀  arr", arr);
-//     createCard(arr)
-//     return arr
-// }
-// exampleFn()
-
-
 //Функция создания карточки на странице Home
 export function createCard(data) {
-    // const dataArray = data;
-    // console.log(dataArray);
     const markup = data.map(obj => {
         const { id, poster_path, title, release_date, genre_ids } = obj;
         // console.log(obj);
@@ -58,11 +30,8 @@ export function createCard(data) {
             </div>
         </li>`
     }).join("");
-    
-
     // console.log(markup);
     cardsList.insertAdjacentHTML("beforeend", markup);
-
 }
 
 //Функция для отображения года выпуска
@@ -86,7 +55,6 @@ function getShortName(string) {
 
 //Функция которая отвечает за жанр
 const { genres } = allGenres;
-
 export function findGenresOfMovie(ids) {
     const arr = ids.flatMap(id => genres.filter(element => element.id === id));
     const movieGenres = arr.map(el => el.name);
@@ -100,5 +68,4 @@ export function findGenresOfMovie(ids) {
         return movieGenres = 'Not found';
     }
     return movieGenres.join(', ');
-
 }

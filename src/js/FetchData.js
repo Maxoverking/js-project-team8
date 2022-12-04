@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 export default class FetchData {
   #API_KEY = '22fa368820f7f9af3c30ea0e6b34461d';
   #commonURL = 'https://api.themoviedb.org/3/';
@@ -24,19 +23,6 @@ export default class FetchData {
     }
   }
 
-  // async getTrendingData(page = 1) {
-  //   try {
-  //     const result = await axios
-  //       .get(this.#commonURL + this.#trendingPath, {
-  //         params: { ...this.#params, page },
-  //         transformResponse: transformResponseFunc,
-  //       });
-  //     return pruningResponse(result);
-  //   } catch (e) {
-  //     console.log('getTrendingData ERROR - ' + e.message); // написать middleware для обработки ошибок и вывода их в HEADER
-  //   }
-  // }
-
   async getSearchData(search, page = 1) {
     try {
       const result = await axios.get(this.#commonURL + this.#searchPath, {
@@ -51,7 +37,7 @@ export default class FetchData {
 }
 
 function transformResponseFunc(response) {
-  let results
+  let results;
   try {
     let dataResponse = JSON.parse(response);
     results = dataResponse.results.map(movieObj => {
@@ -63,12 +49,8 @@ function transformResponseFunc(response) {
     console.log("ошибка здесь", error);
     response.results = [];
   }
-   console.log("🚀  results", results);
   return results;
 }
-
- 
-
 function pruningResponse({ data, status, statusText }) {
   return { data, status, statusText };
 }
