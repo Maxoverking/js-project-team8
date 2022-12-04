@@ -16,7 +16,7 @@ const movieGalleryFetch = new FetchData();
 const exampleFn = async () => { 
     const res = await movieGalleryFetch.getTrendingData();
     const arr = res.data.results;
-    console.log("🚀  arr", arr);
+    // console.log("🚀  arr", arr);
     createCard(arr)
     return arr
 }
