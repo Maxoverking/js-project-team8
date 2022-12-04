@@ -6,3 +6,4 @@ import './js/header-home.js'
 import './js/filmCards-home.js'
 import './js/pagination.js'
 import './js/modal.js'
+import './js/footer-modal.js';
