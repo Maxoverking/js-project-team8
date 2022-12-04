@@ -2,26 +2,30 @@ import allGenres from './genres.json';
 import FetchData from './FetchData.js';
 const movieGalleryFetch = new FetchData();
 
-let currentPage = 1;
 // Получаем данные
-movieGalleryFetch
-.getTrendingData(currentPage)
-.then(res => {
-        const data = res.data
-        createCard(data)
-    }).catch(err => {
-    console.log('index err');
-    console.log(err.message);
-}); 
+// movieGalleryFetch
+// .getTrendingData()
+// .then(res => {
+//         const data = res.data
+//         createCard(data)
+//     }).catch(err => {
+//     console.log('index err');
+//     console.log(err.message);
+// }); 
+
+const exampleFn = async () => { 
+    const res = await movieGalleryFetch.getTrendingData();
+    const arr = res.data.results;
+    createCard(arr)
+    console.log("🚀  arr", arr);
+    return arr
+}
 
 const cardsList = document.querySelector('.cards__list');
 
 //Функция создания карточки на странице Home
 export function createCard(data){
-    // console.log("🚀  data", data);
-    const dataArray = data.results;
-    // console.log(dataArray);
-    const markup = dataArray.map(obj => {
+    const markup = data.map(obj => {
         const {id, poster_path, title, release_date, genre_ids} = obj;
         // console.log(obj);
     return `<li class="cards__item" id="${id}">
@@ -75,3 +79,4 @@ export function findGenresOfMovie(ids) {
     }
     return movieGenres.join(', ');
 }
+exampleFn()
