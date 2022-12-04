@@ -78,6 +78,7 @@ ul, li {
   color: var(--activeColor);
 }
 
+
 .cards__list {
   display: flex;
   flex-direction: column;
@@ -167,7 +168,6 @@ ul, li {
     line-height: 1.2;
   }
 }
-
 .lib {
   color: rgb(103, 218, 93);
 }
@@ -190,4 +190,5 @@ ul, li {
 
 .svg-heart {
   fill: var(--activeColor);
+
 }/*# sourceMappingURL=index.css.map */
