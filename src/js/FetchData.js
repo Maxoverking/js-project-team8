@@ -13,16 +13,29 @@ export default class FetchData {
   // возвращает промис запроса на популярные фильмы
   async getTrendingData(page = 1) {
     try {
-      const result = await axios
-        .get(this.#commonURL + this.#trendingPath, {
-          params: { ...this.#params, page },
-          transformResponse: transformResponseFunc,
-        });
-      return pruningResponse(result);
+      const response = await axios.get(this.#commonURL + this.#trendingPath, {
+        params: { ...this.#params, page },
+        transformResponse: transformResponseFunc,
+      })
+        .then(pruningResponse)
+      return response;
     } catch (e) {
-      console.log('getTrendingData ERROR - ' + e.message); // написать middleware для обработки ошибок и вывода их в HEADER
+      console.log('getTrendingData ERROR - ' + e.message);
     }
   }
+
+  // async getTrendingData(page = 1) {
+  //   try {
+  //     const result = await axios
+  //       .get(this.#commonURL + this.#trendingPath, {
+  //         params: { ...this.#params, page },
+  //         transformResponse: transformResponseFunc,
+  //       });
+  //     return pruningResponse(result);
+  //   } catch (e) {
+  //     console.log('getTrendingData ERROR - ' + e.message); // написать middleware для обработки ошибок и вывода их в HEADER
+  //   }
+  // }
 
   async getSearchData(search, page = 1) {
     try {
