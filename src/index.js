@@ -1,5 +1,5 @@
 import './sass/index.scss';
-import './js/apiRequest.js';
+import './js/ApiRequest.js';
 import './js/fetchData.js';
 import './js/headerHome.js';
 import './js/filmCardsHome.js';
