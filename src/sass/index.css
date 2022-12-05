@@ -249,24 +249,24 @@ a {
 .search-form__input-field:focus::-moz-placeholder {
   color: coral;
   opacity: 0;
-  -moz-transition: color 1s ease;
-  transition: color 1s ease;
-  -moz-transition: opacity 1s ease;
-  transition: opacity 1s ease;
+  -moz-transition: color 1.5s ease;
+  transition: color 1.5s ease;
+  -moz-transition: opacity 1.5s ease;
+  transition: opacity 1.5s ease;
 }
 .search-form__input-field:focus:-ms-input-placeholder {
   color: coral;
   opacity: 0;
-  -ms-transition: color 1s ease;
-  transition: color 1s ease;
-  -ms-transition: opacity 1s ease;
-  transition: opacity 1s ease;
+  -ms-transition: color 1.5s ease;
+  transition: color 1.5s ease;
+  -ms-transition: opacity 1.5s ease;
+  transition: opacity 1.5s ease;
 }
 .search-form__input-field:focus::placeholder {
   color: coral;
   opacity: 0;
-  transition: color 1s ease;
-  transition: opacity 1s ease;
+  transition: color 1.5s ease;
+  transition: opacity 1.5s ease;
 }
 
 .search-form__input-field:active {
