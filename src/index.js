@@ -8,7 +8,8 @@ import './js/modal.js';
 import './js/headerLibrary.js';
 import './js/filmCardsLibrary.js';
 import './js/footer-modal.js';
-import './js/functionSearch.js'
+import './js/functionSearch.js';
+import './js/scroll-top.js';
 
 //Это пример его раскоментить посмотреть что приходит
 
