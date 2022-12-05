@@ -10,30 +10,56 @@ export default class FetchData {
     this.#params.api_key = this.#API_KEY;
   }
   // возвращает промис запроса на популярные фильмы
-  async getTrendingData(page = 1) {
-    try {
-      const response = await axios.get(this.#commonURL + this.#trendingPath, {
+  getTrendingData(page = 1) {
+    return axios
+      .get(this.#commonURL + this.#trendingPath, {
         params: { ...this.#params, page },
         transformResponse: transformResponseFunc,
       })
-        .then(pruningResponse)
-      return response;
-    } catch (e) {
-      console.log('getTrendingData ERROR - ' + e.message);
-    }
+      .then(pruningResponse)
+      .catch(e => {
+        console.log('getTrendingData ERROR - ' + e.message); // написать middleware для обработки ошибок и вывода их в HEADER
+      });
   }
 
-  async getSearchData(search, page = 1) {
-    try {
-      const result = await axios.get(this.#commonURL + this.#searchPath, {
+  // async getTrendingData(page = 1) {
+  //   try {
+  //     const response = await axios
+  //       .get(this.#commonURL + this.#trendingPath, {
+  //         params: { ...this.#params, page },
+  //         transformResponse: transformResponseFunc,
+  //       })
+  //       .then(pruningResponse);
+  //     return response;
+  //   } catch (e) {
+  //     console.log('getTrendingData ERROR - ' + e.message);
+  //   }
+  // }
+
+  // возвращает промис запроса на фильмы по поиску
+  getSearchData(search, page = 1) {
+    return axios
+      .get(this.#commonURL + this.#searchPath, {
         params: { ...this.#params, query: `${search}`, page },
         transformResponse: transformResponseFunc,
+      })
+      .then(pruningResponse)
+      .catch(e => {
+        console.log('getSearchData ERROR - ' + e.message); // написать middleware для обработки ошибок и вывода их в HEADER
       });
-      return pruningResponse(result);
-    } catch (e) {
-      console.log('getSearchData ERROR - ' + e.message); // написать middleware для обработки ошибок и вывода их в HEADER
-    }
   }
+
+  // async getSearchData(search, page = 1) {
+  // try {
+  //     const result = await axios.get(this.#commonURL + this.#searchPath, {
+  //       params: { ...this.#params, query: `${search}`, page },
+  //       transformResponse: transformResponseFunc,
+  //     });
+  //     return pruningResponse(result);
+  //   } catch (e) {
+  //     console.log('getSearchData ERROR - ' + e.message); // написать middleware для обработки ошибок и вывода их в HEADER
+  //   }
+  // }
 }
 
 function transformResponseFunc(response) {
