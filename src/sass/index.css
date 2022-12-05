@@ -444,6 +444,15 @@ a {
   background-repeat: repeat-x;
 }
 
+.heart-btn {
+  border: none;
+  background-color: var(--footerColor);
+}
+
+.likes {
+  margin-right: 4px;
+}
+
 .footer-modal {
   position: fixed;
   top: 0;

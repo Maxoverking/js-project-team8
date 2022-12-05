@@ -29,10 +29,14 @@
     background-size: 100% 2px;
     background-repeat: repeat-x;
 }
-// [data-modal-btn]:hover { 
-//     text-decoration: underline;
-//  }
-
+.heart-btn{
+   border: none; 
+   background-color: var(--footerColor);
+}
+.likes{
+margin-right: 4px;
+}
+    
 
 
 
