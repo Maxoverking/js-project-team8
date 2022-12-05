@@ -1,4 +1,4 @@
-import FetchData from './fetchData.js';
+import FetchData from './FetchData.js';
 
 
 const cardsListLibrary = document.querySelector('.cards__list--library');

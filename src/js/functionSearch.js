@@ -1,4 +1,4 @@
-import FetchData from './fetchData.js';
+import FetchData from './FetchData.js';
 import createCard from './filmCardsHome.js';
 const cardsList = document.querySelector('.cards__list');
 const movieGalleryFetch = new FetchData();
