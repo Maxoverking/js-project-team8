@@ -1,6 +1,6 @@
 import './sass/index.scss';
 import './js/ApiRequest.js';
-import './js/fetchData.js';
+import './js/FetchData.js';
 import './js/headerHome.js';
 import './js/filmCardsHome.js';
 import './js/pagination.js';

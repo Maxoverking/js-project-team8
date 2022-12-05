@@ -1,5 +1,5 @@
 import allGenres from './genres.json';
-import FetchData from './fetchData.js';
+import FetchData from './FetchData.js';
 
 const cardsList = document.querySelector('.cards__list');
 const movieGalleryFetch = new FetchData();
