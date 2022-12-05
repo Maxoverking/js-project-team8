@@ -1,0 +1,28 @@
+.scroll__top {
+    position: fixed;
+    bottom: 120px;
+    right: 60px;
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 500ms linear;
+}
+
+
+.scroll__top--icon {
+    display: block;
+    fill: var(--white);
+    stroke: var(--activeColor);
+    
+}
+.scroll__top--icon:hover,
+.scroll__top--icon:focus {
+    fill: var(--activeColor);
+    stroke: var(--white);
+    border: 4px solid var(--activeColor);
+    border-radius: 50%;
+    
+}
+
+.scroll__top--show {
+    opacity: 1;
+}
