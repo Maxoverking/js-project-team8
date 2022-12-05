@@ -81,7 +81,7 @@ const onPaginationItemClick = async evt => {
   markupUpdate(data);
 };
 
-export default pagination = (fetchObj, search = '') => {
+export default function pagination (fetchObj, search = '') {
   const paginationEl = document.querySelector('#pagination-list');
 
   paginationEl.innerHTML = paginationMarkup(
