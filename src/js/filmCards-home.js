@@ -1,5 +1,6 @@
 import allGenres from './genres.json';
 import FetchData from './FetchData.js';
+import pagination from './pagination';
 
 const cardsList = document.querySelector('.cards__list');
 const movieGalleryFetch = new FetchData();
@@ -8,8 +9,9 @@ const movieGalleryFetch = new FetchData();
 movieGalleryFetch
     .getTrendingData(1)
     .then(response => {
-       console.log('даные которые пришли',response.data);
+       console.log('даные которые пришли',response);
         createCard(response.data)
+        pagination(response);
     })
     .catch(err => {
         console.log('index err');
@@ -31,7 +33,8 @@ export default function createCard(data) {
         </li>`
     }).join("");
     // console.log(markup);
-    cardsList.insertAdjacentHTML("beforeend", markup);
+    //cardsList.insertAdjacentHTML("beforeend", markup);
+    cardsList.innerHTML=markup;
 }
 
 //Функция для отображения года выпуска
@@ -69,3 +72,4 @@ export function findGenresOfMovie(ids) {
     }
     return movieGenres.join(', ');
 }
+
