@@ -7,7 +7,7 @@ import './js/pagination.js';
 import './js/modal.js';
 import './js/headerLibrary.js';
 import './js/filmCardsLibrary.js';
-import './js/footerModal.js';
+import './js/footer-modal.js';
 import './js/functionSearch.js'
 
 //Это пример его раскоментить посмотреть что приходит
