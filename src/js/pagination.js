@@ -1,14 +1,15 @@
 import FetchData from './FetchData';
 import createCard from './filmCards-home';
+const movieGalleryFetch = new FetchData();
 
-const movieGalleryFetch = new FetchData(); ////For develop
-const search = '';
+let search = null;
+let total_pages = null;
 
 const paginationMarkup = (arr = [], page = 1) => {
   const currentPage = (arrItem, page) => (arrItem === page ? 'current' : '');
 
   return [
-    `<li class="pagination-list__item"><button class="pagination-list__button">Arrow left</button></li>`,
+    `<li class="pagination-list__item"><button class="pagination-list__button" data-left_one_page>Arrow left</button></li>`,
     ...arr.map(
       item =>
         `<li class="pagination-list__item"><button class="pagination-list__button ${currentPage(
@@ -16,7 +17,7 @@ const paginationMarkup = (arr = [], page = 1) => {
           page
         )}">${item}</button></li>`
     ),
-    `<li class="pagination-list__item"><button class="pagination-list__button">Arrow right</button></li>`,
+    `<li class="pagination-list__item"><button class="pagination-list__button" data-right_one_page>Arrow right</button></li>`,
   ].join('');
 };
 
@@ -67,26 +68,39 @@ const fetchPage = async (page = 1, search = '') => {
   return result;
 };
 
+const onArrowClick = (evt, currentPage) => {
+  if (evt.target.hasAttribute('data-left_one_page')) {
+    const prevPage = currentPage - 1;
+    return prevPage < 1 ? 1 : prevPage;
+  }
+  if (evt.target.hasAttribute('data-right_one_page')) {
+    const nextPage = currentPage + 1;
+    return nextPage > total_pages ? total_pages : nextPage;
+  }
+};
+
 const onPaginationItemClick = async evt => {
   evt.preventDefault();
-  const paginButtonContent = evt.target.textContent;
-  if (paginButtonContent === '...') return;
-  if (paginButtonContent.includes('Arrow')) return;
-
   let pageNum = null;
-
+  const currentPage = parseInt(document.querySelector('.current').textContent);
+  const paginButtonContent = evt.target.textContent;
   if (!(pageNum = parseInt(paginButtonContent))) pageNum = 1;
+  if (paginButtonContent === '...') return;
+  if (paginButtonContent.includes('Arrow'))
+    pageNum = onArrowClick(evt, currentPage);
 
   const data = await fetchPage(pageNum, search);
   markupUpdate(data);
 };
 
-export default function pagination (fetchObj, search = '') {
+export default function pagination(fetchObj) {
   const paginationEl = document.querySelector('#pagination-list');
 
   paginationEl.innerHTML = paginationMarkup(
     getArrPageNumbersForView(fetchObj.page, fetchObj.total_pages),
     fetchObj.page
   );
+  search = fetchObj.query;
+  total_pages = fetchObj.total_pages;
   paginationEl.addEventListener('click', onPaginationItemClick);
-};
+}
