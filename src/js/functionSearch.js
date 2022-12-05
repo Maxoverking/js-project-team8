@@ -1,12 +1,10 @@
-import FetchData from './FetchData.js';
-import createCard from './filmCards-home';
+import FetchData from './fetchData.js';
+import createCard from './filmCardsHome.js';
 const cardsList = document.querySelector('.cards__list');
 const movieGalleryFetch = new FetchData();
 const form = document.querySelector('.search-form');
 const input = document.getElementById("inputSearch");
 const message = document.querySelector(".error-search");
-
-
 
 form.addEventListener("submit", (e)=> {
     e.preventDefault();

@@ -1,14 +1,14 @@
 import './sass/index.scss';
-import './js/ApiRequest.js';
-import './js/FetchData.js';
-import './js/header-home.js';
-import './js/filmCards-home.js';
+import './js/apiRequest.js';
+import './js/fetchData.js';
+import './js/headerHome.js';
+import './js/filmCardsHome.js';
 import './js/pagination.js';
 import './js/modal.js';
-import './js/header-library.js';
-import './js/filmCards-library.js';
+import './js/headerLibrary.js';
+import './js/filmCardsLibrary.js';
 import './js/footer-modal.js';
-import './js/function-search'
+import './js/functionSearch.js'
 
 //Это пример его раскоментить посмотреть что приходит
 
