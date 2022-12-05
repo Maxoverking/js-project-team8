@@ -1,4 +1,4 @@
-import { createCard } from './filmCardsHome.js';
+import { createCard } from './filmCards-home.js';
 // в строчке 3 загототовка для экспорта функции и получения данных из вне
 // export function addInLocalStorage(data = {}) {
 

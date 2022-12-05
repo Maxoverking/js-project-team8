@@ -1,5 +1,5 @@
 import FetchData from './FetchData.js';
-import createCard from './filmCardsHome.js';
+import createCard from './filmCards-home.js';
 const cardsList = document.querySelector('.cards__list');
 const movieGalleryFetch = new FetchData();
 const form = document.querySelector('.search-form');
