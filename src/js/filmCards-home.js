@@ -35,6 +35,14 @@ export default function createCard(data) {
     // console.log(markup);
     //cardsList.insertAdjacentHTML("beforeend", markup);
     cardsList.innerHTML=markup;
+    
+
+    //удаления и сохранения локал сторедж 
+    localStorage.removeItem('allFilmOnPage');
+    let allFilms = JSON.stringify(data);
+    localStorage.setItem('allFilmOnPage', allFilms);
+
+    
 }
 
 //Функция для отображения года выпуска
