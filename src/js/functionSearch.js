@@ -1,5 +1,6 @@
 import FetchData from './FetchData.js';
 import createCard from './filmCards-home.js';
+import pagination from './pagination.js';
 const cardsList = document.querySelector('.cards__list');
 const movieGalleryFetch = new FetchData();
 const form = document.querySelector('.search-form');
@@ -13,14 +14,16 @@ form.addEventListener("submit", (e)=> {
     movieGalleryFetch
     .getSearchData(word)
     .then(response => {
-       console.log('даные которые пришли',response.data);
+       console.log('даные которые пришли', response.data);
+       console.log('даные которые пришли в search', response);
        if(response.data.length == 0) {
         message.classList.add("visible");
         setTimeout(()=> message.classList.remove("visible"), 4000)
        }
        else {
         cardsList.innerHTML = ""
-        createCard(response.data)
+           createCard(response.data)
+           pagination(response);
        }
         
     })
