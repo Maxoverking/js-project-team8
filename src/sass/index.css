@@ -412,6 +412,14 @@ a {
   }
 }
 
+#pagination-list {
+  display: flex;
+}
+
+.pagination-list__button.current {
+  background-color: orange;
+}
+
 .footer {
   background-color: var(--footerColor);
 }
