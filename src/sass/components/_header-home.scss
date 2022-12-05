@@ -106,9 +106,7 @@
         background-color: var(--redColor);
         width: 100%;
         height: 3px;
-
     }
-
 }
 
 .search-form{
@@ -165,14 +163,13 @@
         &::placeholder{
             color: var(--white);
             opacity: 1;
-            
         }
 
     &:focus::placeholder{
         color:coral ;
         opacity: 0;
-        transition: color 1s ease;      
-        transition: opacity 1s ease;      
+        transition: color 1.5s ease;      
+        transition: opacity 1.5s ease;      
     }
     
 }

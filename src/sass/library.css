@@ -91,10 +91,6 @@ a {
   clip: rect(0 0 0 0);
 }
 
-.lib {
-  color: rgb(103, 218, 93);
-}
-
 .header {
   height: 230px;
   max-width: 1600px;
@@ -226,10 +222,12 @@ a {
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
+  transition: background-color 0.4s ease;
 }
 .button-switches:hover, .button-switches:focus {
-  background-color: var(--buttonActive);
-  border: none;
+  background-color: var(--activeColor);
+  color: var(--white);
+  transition: background-color 0.4s ease;
 }
 
 .footer {
