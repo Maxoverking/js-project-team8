@@ -33,15 +33,126 @@
     visibility: hidden;
 }
 
-.visually-hidden {
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    border: 0;
-    padding: 0;
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    margin: -1px;
+
+
+.poster {
+    width: 375px;
+    height: 478px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 5px;
+    display: block;
 }
+
+.modal-poster__placeholder-thumb {
+    width: 100%;
+    height: 100%;
+    background: unset;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.modal-poster__placeholder-thumb {
+    width: 100%;
+    height: 100%;
+    background: unset;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.modal-info {
+    max-width: 264px;
+    flex-direction: column;
+    display: flex;
+}
+
+.modal__title {
+    height: 30px;
+    overflow: auto;
+    flex-shrink: 0;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 23px;
+    color: #000;
+}
+
+
+.modal-data {
+    margin-bottom: 20px;
+}
+
+.modal__characteristic-rating,
+.modal__characteristic-popularity,
+.modal__characteristic-title,
+.modal__characteristic-genre {
+    color: #123;
+    margin-bottom: 8px;
+    font-size: 12px;
+}
+
+
+
+.modal__about {
+    size: 12px;
+    margin-bottom: 8px;
+}
+
+
+.modal__about-text {
+    letter-spacing: 0;
+    text-align: left;
+    height: 100px;
+    max-height: 120px;
+    flex-shrink: 0;
+    margin-bottom: 20px;
+    font-family: Roboto, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 20px;
+    overflow: auto;
+}
+
+
+
+.modal-buttons {
+    justify-content: space-evenly;
+    display: flex;
+}
+
+
+
+
+.modal_position{
+    display: flex;
+}
+
+.modal_position__flex + .modal_position__flex{
+    margin-left: 16px;
+}
+
+
+.modal_position__flexclose{
+    position: absolute;
+    right: 55px;
+}
+
+.modal-popularity + .modal-popularity{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.modal-inform__accent + .modal-inform {
+display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+
+
+
