@@ -24,20 +24,6 @@ export default class FetchData {
       });
   }
 
-  // async getTrendingData(page = 1) {
-  //   try {
-  //     const response = await axios
-  //       .get(this.#commonURL + this.#trendingPath, {
-  //         params: { ...this.#params, page },
-  //         transformResponse: transformResponseFunc,
-  //       })
-  //       .then(pruningResponse);
-  //     return response;
-  //   } catch (e) {
-  //     console.log('getTrendingData ERROR - ' + e.message);
-  //   }
-  // }
-
   // возвращает промис запроса на фильмы по поиску
   getSearchData(search, page = 1) {
     return axios
@@ -51,17 +37,6 @@ export default class FetchData {
       });
   }
 
-  // async getSearchData(search, page = 1) {
-  // try {
-  //     const result = await axios.get(this.#commonURL + this.#searchPath, {
-  //       params: { ...this.#params, query: `${search}`, page },
-  //       transformResponse: transformResponseFunc,
-  //     });
-  //     return pruningResponse(result);
-  //   } catch (e) {
-  //     console.log('getSearchData ERROR - ' + e.message); // написать middleware для обработки ошибок и вывода их в HEADER
-  //   }
-  // }
 }
 
 function transformResponseFunc(response) {
@@ -85,5 +60,14 @@ function transformResponseFunc(response) {
 }
 
 function pruningResponse(res) {
-  return { ...res.data, status: res.status, statusText: res.statusText };
+  if (!res.config.params.query) {
+    res.config.params.query = null;
+  }
+  return {
+    ...res.data,
+    status: res.status,
+    statusText: res.statusText,
+    query: res.config.params.query,
+  };
 }
+
