@@ -91,7 +91,58 @@ a {
   clip: rect(0 0 0 0);
 }
 
+.backdrop {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-hidden .modal {
+  transform: scale(0.5);
+}
+
+.modal {
+  width: 806px;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  background: #a4b1a3;
+  border-radius: 4px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  box-shadow: 0px 1px 3px rgba 0 0 0, 0.12, 0px 1px 1px rgba 0 0 0, 0.14, 0px 2px 1px rgba 0 0 0, 0, 2;
+  transition: 250ms;
+  padding: 40px;
+}
+
+.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+  margin: -1px;
+}
+
 .header {
+  position: relative;
+  overflow: hidden;
   height: 230px;
   max-width: 1600px;
   margin: 0 auto;
@@ -236,6 +287,48 @@ a {
   padding: 20px 0 20px;
 }
 
+.header i {
+  position: absolute;
+  background: #fff;
+  border-radius: 80%;
+  box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff, 0 0 80px #fff;
+  -webkit-animation: snowFall 3s linear infinite;
+          animation: snowFall 3s linear infinite;
+}
+
+@-webkit-keyframes snowFall {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(2000%);
+    opacity: 0;
+  }
+}
+
+@keyframes snowFall {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(2000%);
+    opacity: 0;
+  }
+}
 #pagination-list {
   display: flex;
 }
