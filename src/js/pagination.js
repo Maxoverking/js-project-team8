@@ -1,6 +1,6 @@
 import FetchData from './FetchData';
 import createCard from './filmCards-home';
-import svgArrows from '../images/sprite.svg'
+import svgArrows from '../images/sprite.svg';
 
 const movieGalleryFetch = new FetchData();
 
@@ -12,8 +12,8 @@ const paginationMarkup = (arr = [], page = 1) => {
 
   return [
     `<li class="pagination-list__item">
-    <button class="pagination-list__button" data-left_one_page>
-        <svg class="arrows">
+    <button class="pagination-list__button arrow" data-left_one_page>
+        <svg>
             <use href="${svgArrows}#icon-arrow-left"></use>
         </svg>
     </button></li>`,
@@ -21,13 +21,13 @@ const paginationMarkup = (arr = [], page = 1) => {
       item =>
         `<li class="pagination-list__item"><button 
         class="pagination-list__button
-         ${currentPage(item,page)}">${item}</button></li>`
+         ${currentPage(item, page)}">${item}</button></li>`
     ),
     `<li class="pagination-list__item">
     <button 
-    class="pagination-list__button" 
+    class="pagination-list__button arrow" 
     data-right_one_page>
-     <svg class="arrows">
+     <svg>
             <use href="${svgArrows}#icon-arrow-right"></use>
         </svg>
     </button>
@@ -83,11 +83,12 @@ const fetchPage = async (page = 1, search = '') => {
 };
 
 const onArrowClick = (evt, currentPage) => {
-  if (evt.target.hasAttribute('data-left_one_page')) {
+  const arrowEl = evt.target.closest('.arrow')
+  if (arrowEl.hasAttribute('data-left_one_page')) {
     const prevPage = currentPage - 1;
     return prevPage < 1 ? 1 : prevPage;
   }
-  if (evt.target.hasAttribute('data-right_one_page')) {
+  if (arrowEl.hasAttribute('data-right_one_page')) {
     const nextPage = currentPage + 1;
     return nextPage > total_pages ? total_pages : nextPage;
   }
@@ -100,7 +101,7 @@ const onPaginationItemClick = async evt => {
   const paginButtonContent = evt.target.textContent;
   if (!(pageNum = parseInt(paginButtonContent))) pageNum = 1;
   if (paginButtonContent === '...') return;
-  if (paginButtonContent.includes('Arrow'))
+  if (evt.target.closest('.arrow'))
     pageNum = onArrowClick(evt, currentPage);
 
   const data = await fetchPage(pageNum, search);

@@ -9,7 +9,7 @@ const movieGalleryFetch = new FetchData();
 movieGalleryFetch
     .getTrendingData(1)
     .then(response => {
-       console.log('даные которые пришли',response);
+       console.log('даные которые пришли',response.data);
         createCard(response.data)
         pagination(response);
     })
