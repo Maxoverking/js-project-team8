@@ -69,11 +69,12 @@ height: 140px;
     right: 0;
     top: 118px;
     fill:rgb(255, 127, 92);
+    
     transition: transform 350ms ease-in-out;
 }
 .github:hover{
-transform:scale(1.5);
-fill: #FFE488;
+transform:scale(1.5) translateY(10);
+fill: #0b0b0b;
 }
 .team-title{
     display: flex;
