@@ -1,7 +1,30 @@
 #pagination-list{
     display: flex;
+    justify-content: center;
 }
 
 .pagination-list__button.current{
     background-color: orange;
+}
+.pagination-list__item{
+    margin-right: 4px;
+}
+.pagination-list__button{
+    padding: 12px 18px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    border: none;
+    background-color: transparent;
+    border-radius: 5px;
+}
+[data-left_one_page],
+[data-right_one_page]{
+    background-color: var(--footerColor);
+    padding: 12px 18px;
+    
+}
+.arrows{
+    width: 16px;
+    height: 16px;
 }

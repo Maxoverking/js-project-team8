@@ -1,5 +1,6 @@
 import FetchData from './FetchData';
 import createCard from './filmCards-home';
+
 const movieGalleryFetch = new FetchData();
 
 let search = null;
@@ -9,7 +10,9 @@ const paginationMarkup = (arr = [], page = 1) => {
   const currentPage = (arrItem, page) => (arrItem === page ? 'current' : '');
 
   return [
-    `<li class="pagination-list__item"><button class="pagination-list__button" data-left_one_page>Arrow left</button></li>`,
+    `<li class="pagination-list__item"><button class="pagination-list__button" data-left_one_page>Arrows
+        
+        </button></li>`,
     ...arr.map(
       item =>
         `<li class="pagination-list__item"><button class="pagination-list__button ${currentPage(
