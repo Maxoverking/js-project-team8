@@ -1,7 +1,6 @@
 const openFtrModalBtn = document.querySelector('[data-modal-btn]');
 const ftrModalContainer = document.querySelector('.footer-modal');
 
-
 openFtrModalBtn.addEventListener('click', openModal);
 function openModal() {
         ftrModalContainer.classList.add('opn-ftr_modal');

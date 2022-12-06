@@ -22,7 +22,7 @@ transform: translate(-50%,-50%) ;
     width: 76%;
     top:  50%;
     left: 50%;
-    transform: translate(-50%,440%);
+    transform: translate(-50%,130%);
     padding: 20px;
     border: none;
     border-radius: 20px;
@@ -31,54 +31,57 @@ transform: translate(-50%,-50%) ;
     overflow-y: auto;
     overflow-x: hidden;
 }
-
-// .modal-inner {
-// }
-// .modal_title {
-// }
 .foo-title{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
-
-  @mixin border-gradient($from, $to, $weight: 1) {
-  $mix-main: mix($from, $to);
-  $mix-sub-from: mix($mix-main, $from);
-  $mix-sub-to: mix($mix-main, $to);
-  box-shadow: 0 1px 0 $weight rgba($mix-sub-to, .25),
-              0 -1px 0 $weight rgba($mix-sub-from, .25),
-              1px 0 0 $weight rgba($mix-sub-to, .25),
-              -1px 0 0 $weight  rgba($mix-sub-from, .25),
-              1px -1px 0 $weight rgba($mix-main, .5),
-              -1px 1px 0 $weight rgba($mix-main, .5),
-              1px 1px 0 $weight rgba($to, .75),
-              -1px -1px 0 $weight rgba($from, .75);
+.modal_title {
+    font-size: 1.5em;
 }
-.round {
-// border-radius: 60px 60px 0px; /* Радиус скругления */
-// border: 4px solid rgba(#6a4618, $alpha: .7);
-  border-radius: 100%;
-  
-  @include border-gradient(red, yellow);
-  animation: border-gradient 0.2s linear infinite; 
-//   box-shadow: 0 0 14px #666;
-
+.modal_title-name{
+  	font: 500 2em/1 "Oswald", sans-serif;
+  	color:rgb(255, 127, 92);
   }
-    /* Параметры рамки */
-//     // box-shadow: 0 0 7px #666;
-// }
-//     border-radius: 60px; /* Радиус скругления */
-//     border: 4px solid rgba($color: #6a4618, $alpha: .7); /* Параметры рамки */
-//     // box-shadow: 0 0 7px #666;
-// }
 
-.circle{
-    display: inline-block;
-    border-radius: 60px;
-     
- 
-    animation: rotateThis 1s linear infinite; 
+.round {
+width: 140px;
+height: 140px;
+
+  border-radius: 60px 60px 0 ;
+  box-shadow: -4px 10px 15px 1px #FFE488, 
+  4px -2px 15px 1px #151d23,
+   5px 5px 15px 5px rgba(0,0,0,0);
+  }
+.team-container{
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 30px;
+    justify-content: center;
+    gap: 50px;
 }
+.team-data{
+    position: relative;
+    display: inline-block;
+}  
+.github{
+    position: absolute;
+    right: 0;
+    top: 118px;
+    fill:rgb(255, 127, 92);
+    transition: transform 350ms ease-in-out;
+}
+.github:hover{
+transform:scale(1.5);
+fill: #FFE488;
+}
+.team-title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+}
+
 @keyframes rotateThis {
   from {
     transform: rotate(0deg) scale(3);
