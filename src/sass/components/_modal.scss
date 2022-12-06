@@ -1,7 +1,7 @@
 .backdrop {
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.2);
     position: fixed;
     top: 0;
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -13,9 +13,18 @@
 }
 
 .modal {
+    @media screen and (min-width: 768px) and (max-width: 1279.98px){
     width: 806px;
     height: min-content;
-    background: #a4b1a3;
+    }
+
+     @media screen and (max-width: 767.98px){
+        width: 380px;
+        height: 940px;
+     }
+
+    
+    background: #FFFFFF;
     border-radius: 4px;
     position: absolute;
     top: 50%;
@@ -33,7 +42,23 @@
     visibility: hidden;
 }
 
+.modal_position{
+display: flex;
 
+@media screen and (max-width: 767.98px){
+display: block;
+}
+}
+// @media screen and (min-width: 768px) and (max-width: 1279.98px)
+
+.modal_position__flex + .modal_position__flex{
+@media screen and (min-width: 768px) and (max-width: 1279.98px){
+margin-left: 40px;
+}
+@media screen and (max-width: 767.98px) {
+margin-left: 20px;
+}
+}
 
 .poster {
     width: 375px;
@@ -69,35 +94,50 @@
 }
 
 .modal__title {
-    height: 30px;
-    overflow: auto;
+    height: 47px;
     flex-shrink: 0;
     margin-bottom: 20px;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 500;
-    line-height: 23px;
-    color: #000;
+    line-height: 35px;
+    overflow: auto;
+    font-family: 'Roboto';
 }
-
 
 .modal-data {
     margin-bottom: 20px;
 }
 
-.modal__characteristic-rating,
-.modal__characteristic-popularity,
-.modal__characteristic-title,
-.modal__characteristic-genre {
-    color: #123;
-    margin-bottom: 8px;
-    font-size: 12px;
-}
-
-
-
 .modal__about {
     size: 12px;
     margin-bottom: 8px;
+}
+
+.modal__characteristic-rating--text, .modal__characteristic-popularity--text,.modal__characteristic-title--text,.modal__characteristic-genre--text{
+    font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 16px;
+        /* identical to box height, or 133% */
+
+        color: #8C8C8C;
+}
+
+.modal__characteristic-rating,
+.modal__characteristic-popularity,
+.modal__characteristic-title,
+.modal__characteristic-genre{
+    margin-bottom: 8px;
+    font-size: 12px;
+    
+}
+.modal-data-table{
+    display: table-row;
+}
+
+td{
+    width: 100%;
 }
 
 
@@ -115,43 +155,47 @@
     overflow: auto;
 }
 
-
-
-.modal-buttons {
-    justify-content: space-evenly;
+.modal__characteristic-inform--accent{
+    background: #FF6B01;
+    border-radius: 5px;
+    width: 10px;
+    color: #ffffff;
+}
+.modal-buttons{
     display: flex;
 }
-
-
-
-
-.modal_position{
-    display: flex;
+.modal__add-to-watched {
+    margin-right: 15px;
 }
 
-.modal_position__flex + .modal_position__flex{
-    margin-left: 16px;
+.modal__add-to-watched{
+    background: #ffffff;
+    border-radius: 5px;
+    border: 1px solid #000000;
+    color: #000000;
+    font-size: 12px;
+    padding: 8px;
 }
 
-
-.modal_position__flexclose{
-    position: absolute;
-    right: 55px;
-}
-
-.modal-popularity + .modal-popularity{
-    display: flex;
-    justify-content: space-between;
+.modal__add-to-watched:hover{
+ background-color:#FF6B01;
+ color: #FFFFFF;
 }
 
 
-.modal-inform__accent + .modal-inform {
-display: flex;
-    justify-content: space-between;
+.modal__add-to-queue{
+    background: #ffffff;
+    border-radius: 5px;
+    border: 1px solid #000000;
+    color: #000000;
+    font-size: 12px;
+    padding:8px;
 }
 
-
-
+.modal__add-to-queue:hover {
+    background-color: #FF6B01;
+    color: #FFFFFF;
+}
 
 
 
