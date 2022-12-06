@@ -48,7 +48,7 @@ function searchId(id) {
     } else {
       return;
     }
-   })
-// фильм 
-//   console.log(filmClick)
+  });
+  // фильм
+  //   console.log(filmClick)
 }
