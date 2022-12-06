@@ -1,5 +1,6 @@
 import FetchData from './FetchData';
 import createCard from './filmCards-home';
+import svgArrows from '../images/sprite.svg'
 
 const movieGalleryFetch = new FetchData();
 
@@ -10,17 +11,27 @@ const paginationMarkup = (arr = [], page = 1) => {
   const currentPage = (arrItem, page) => (arrItem === page ? 'current' : '');
 
   return [
-    `<li class="pagination-list__item"><button class="pagination-list__button" data-left_one_page>Arrows
-        
-        </button></li>`,
+    `<li class="pagination-list__item">
+    <button class="pagination-list__button" data-left_one_page>
+        <svg class="arrows">
+            <use href="${svgArrows}#icon-arrow-left"></use>
+        </svg>
+    </button></li>`,
     ...arr.map(
       item =>
-        `<li class="pagination-list__item"><button class="pagination-list__button ${currentPage(
-          item,
-          page
-        )}">${item}</button></li>`
+        `<li class="pagination-list__item"><button 
+        class="pagination-list__button
+         ${currentPage(item,page)}">${item}</button></li>`
     ),
-    `<li class="pagination-list__item"><button class="pagination-list__button" data-right_one_page>Arrow right</button></li>`,
+    `<li class="pagination-list__item">
+    <button 
+    class="pagination-list__button" 
+    data-right_one_page>
+     <svg class="arrows">
+            <use href="${svgArrows}#icon-arrow-right"></use>
+        </svg>
+    </button>
+    </li>`,
   ].join('');
 };
 

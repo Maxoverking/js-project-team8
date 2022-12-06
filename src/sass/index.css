@@ -527,13 +527,29 @@ a {
   line-height: 16px;
   border: none;
   background-color: transparent;
+  transition: background-color 250ms ease-in;
   border-radius: 5px;
+}
+.pagination-list__button:hover, .pagination-list__button:focus, .pagination-list__button:active {
+  background-color: orange;
 }
 
 [data-left_one_page],
 [data-right_one_page] {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
   background-color: var(--footerColor);
-  padding: 12px 18px;
+  transition: background-color 250ms ease-in;
+}
+[data-left_one_page]:hover, [data-left_one_page]:focus, [data-left_one_page]:active,
+[data-right_one_page]:hover,
+[data-right_one_page]:focus,
+[data-right_one_page]:active {
+  background-color: bisque;
 }
 
 .arrows {
@@ -664,8 +680,8 @@ a {
 }
 
 .github:hover {
-  transform: scale(1.5);
-  fill: #FFE488;
+  transform: scale(1.5) translateY(10);
+  fill: #0b0b0b;
 }
 
 .team-title {
