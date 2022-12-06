@@ -334,6 +334,10 @@ a {
   justify-content: center;
 }
 
+.pagination {
+  padding-bottom: 60px;
+}
+
 .pagination-list__button.current {
   background-color: orange;
 }
@@ -381,7 +385,6 @@ a {
 
 .footer {
   background-color: var(--footerColor);
-  margin-top: 60px;
 }
 
 .footer-container {
