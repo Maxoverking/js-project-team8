@@ -5,6 +5,8 @@ function snowFall() {
 
     while (i < count) {
         let snowflake = document.createElement('i');
+        snowflake.classList.add('fas');
+        snowflake.classList.add('fa-snowflake');
         let x = Math.floor(Math.random() * window.innerWidth);
         let y = Math.floor(Math.random() * window.innerHeight);
         let size = Math.random() * 10;
