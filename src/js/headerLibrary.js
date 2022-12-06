@@ -1,4 +1,4 @@
-import { createCard, createYear, getShortName } from './filmCards-home.js';
+import createCard from './filmCards-home.js';
 
 const refs = {
   body: document.querySelector('body'),
