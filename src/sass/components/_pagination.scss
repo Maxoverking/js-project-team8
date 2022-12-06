@@ -2,6 +2,9 @@
     display: flex;
     justify-content: center;
 }
+.pagination{
+    padding-bottom: 60px;
+}
 .pagination-list__button.current{
     background-color: orange;
 }

@@ -6,7 +6,7 @@ const refs = {
 refs.body.addEventListener('click', onClickButton);
 
 function onClickButton(e) {
-  if (e.target.hasAttribute('data-addinstoragewatched')) {
+  if (e.target.hasAttribute('data-addinstoragewantwatched')) {
     addInWantWatchList(e);
   }
 
