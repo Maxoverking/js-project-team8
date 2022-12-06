@@ -141,6 +141,8 @@ a {
 }
 
 .header {
+  position: relative;
+  overflow: hidden;
   height: 230px;
   max-width: 1600px;
   margin: 0 auto;
@@ -285,6 +287,48 @@ a {
   padding: 20px 0 20px;
 }
 
+.header i {
+  position: absolute;
+  background: #fff;
+  border-radius: 80%;
+  box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff, 0 0 80px #fff;
+  -webkit-animation: snowFall 3s linear infinite;
+          animation: snowFall 3s linear infinite;
+}
+
+@-webkit-keyframes snowFall {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(2000%);
+    opacity: 0;
+  }
+}
+
+@keyframes snowFall {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(2000%);
+    opacity: 0;
+  }
+}
 #pagination-list {
   display: flex;
 }

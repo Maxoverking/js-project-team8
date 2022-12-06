@@ -82,12 +82,3 @@ fill: #FFE488;
     padding-top: 10px;
 }
 
-@keyframes rotateThis {
-  from {
-    transform: rotate(0deg) scale(3);
-  }
-  
-  to {
-    transform: rotate(360deg) scale(5);
-  }
-}
