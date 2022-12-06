@@ -94,6 +94,7 @@ const onPaginationItemClick = async evt => {
 
   const data = await fetchPage(pageNum, search);
   markupUpdate(data);
+  window.scrollTo(0, 0);
 };
 
 export default function pagination(fetchObj) {
