@@ -1,47 +1,48 @@
-#pagination-list{
-    display: flex;
-    justify-content: center;
+#pagination-list {
+  display: flex;
+  justify-content: center;
 }
-.pagination-list__button.current{
+.pagination-list__button.current {
+  background-color: orange;
+}
+.pagination-list__item {
+  margin-right: 4px;
+}
+.pagination-list__button {
+  padding: 12px 18px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  border: none;
+  background-color: transparent;
+  transition: background-color 250ms ease-in;
+  border-radius: 5px;
+  &:hover,
+  &:focus,
+  &:active {
     background-color: orange;
-}
-.pagination-list__item{
-    margin-right: 4px;
-}
-.pagination-list__button{
-    padding: 12px 18px;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 16px;
-    border: none;
-    background-color: transparent;
-    transition: background-color 250ms ease-in;
-    border-radius: 5px;
-    &:hover,
-    &:focus,
-    &:active{
-       background-color: orange; 
-    }
+  }
 }
 [data-left_one_page],
-[data-right_one_page]{
-    height: 40px;
-    width: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    
-    background-color: var(--footerColor);
-    transition: background-color 250ms ease-in;
+[data-right_one_page] {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
 
-    &:hover,
-    &:focus,
-    &:active{
+  background-color: var(--footerColor);
+  transition: background-color 250ms ease-in;
+
+  &:hover,
+  &:focus,
+  &:active {
     background-color: bisque;
-    }   
-}
-.arrows{
+  }
+
+  & > svg {
     width: 16px;
     height: 16px;
+  }
 }
