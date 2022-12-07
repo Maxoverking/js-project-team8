@@ -93,7 +93,6 @@ function addInWatchedList(e) {
 function addInLibraryWatched() {
   let filmListWatched =
   JSON.parse(localStorage.getItem('filmListWatched')) || [];
-  console.log("🚀  filmListWatched", filmListWatched);
   createCardLibrary(filmListWatched);
 }
 
