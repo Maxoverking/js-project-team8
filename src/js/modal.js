@@ -1,10 +1,7 @@
 import { addInLocalStorage } from './headerLibrary';
 const cardsListLibrary = document.querySelector('.cards__list--library');
 
-console.log("🚀  cardsListLibrary", cardsListLibrary);
 const list = document.querySelector('.cards__list');
-
-console.log("🚀  listHome", list);
 const modal = document.querySelector('[data-modal]');
 const closeModalBtn = document.querySelector('[data-modal-close]');
 const poster = document.querySelector('.poster');
@@ -28,8 +25,8 @@ function toggleModal() {
   addInStorageWatched.id = filmClick.id;
 }
 
+// console.log("🚀  location.pathname", location.pathname);
 //слушатель списка
-console.log("🚀  location.pathname", location.pathname);
 if ( cardsListLibrary === null) {
   list.addEventListener('click', onClick);
 }else{
