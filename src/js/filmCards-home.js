@@ -1,12 +1,17 @@
 import allGenres from './genres.json';
 import FetchData from './FetchData.js';
 import pagination from './pagination';
+const cardsListLibrary = document.querySelector('.cards__list--library');
 
+console.log("🚀  cardsListLibrary", cardsListLibrary);
 const cardsList = document.querySelector('.cards__list');
-const movieGalleryFetch = new FetchData();
 
+const movieGalleryFetch = new FetchData();
 // Получаем данные
-  movieGalleryFetch
+if (cardsListLibrary !== null) {
+    return;
+} else {
+    movieGalleryFetch
     .getTrendingData(1)
     .then(response => {
        console.log('даные которые пришли',response.data);
@@ -16,7 +21,8 @@ const movieGalleryFetch = new FetchData();
     .catch(err => {
         console.log('index err');
         console.log(err.message);
-    });
+    });  
+}
 
 //Функция создания карточки на странице Home
 export default function createCard(data) {

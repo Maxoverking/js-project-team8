@@ -6,9 +6,7 @@ const cardsListLibrary = document.querySelector('.cards__list--library');
 export default function createCardLibrary(data){
     const markup = data.map(obj => {
         const {id, poster_path, title, release_date, genre_ids,vote_average} = obj;
-        const rate = vote_average.toFixed(1).toString()
-
-        console.log("🚀  rate", rate);
+        const rate = vote_average.toFixed(1).toString();
         // console.log(obj);
     return `<li class="cards__item" id="${id}" >
         <a class="cards__link">
