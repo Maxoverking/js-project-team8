@@ -1,4 +1,5 @@
-import createCard from './filmCards-home.js';
+import createCardLibrary from './filmCardsLibrary.js';
+
 
 const refs = {
   body: document.querySelector('body'),
@@ -88,13 +89,17 @@ function addInWatchedList(e) {
   //залить в локал сторадж
   localStorage.setItem('filmListWatched', JSON.stringify(filmListWatched));
 }
+
 function addInLibraryWatched() {
   let filmListWatched =
-    JSON.parse(localStorage.getItem('filmListWatched')) || [];
-  createCard(filmListWatched);
+  JSON.parse(localStorage.getItem('filmListWatched')) || [];
+  console.log("🚀  filmListWatched", filmListWatched);
+  createCardLibrary(filmListWatched);
 }
+
 function addInLibraryQueue() {
   let filmListWantWatch =
     JSON.parse(localStorage.getItem('filmListWantWatch')) || [];
-  createCard(filmListWantWatch);
+  createCardLibrary(filmListWantWatch);
 }
+addInLibraryWatched()
