@@ -1,91 +1,80 @@
+<button type="button" class="btn" data-modal-open>Open window</button>
+
+
 <div class="backdrop is-hidden" data-modal>
+
   <div class="modal">
-    <div>
-      <button type="button" class="modal__close" data-modal-close>
-        <p>close window</p>
+    <ul class="modal_position">
+
+      <li class="modal_position__flex">
+        <div class="modal-poster">
+          <img
+            src="https://m.media-amazon.com/images/M/MV5BM2ZmMjEyZmYtOGM4YS00YTNhLWE3ZDMtNzQxM2RhNjBlODIyXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_.jpg"
+            class="poster" alt="poster" id="poster">
+        </div>
+      </li>
+      <li class="modal_position__flex">
+        <div class="modal-info">
+          <h2 class="modal__title" id="modalTitle">Film name</h2>
+          <div class="modal-data">
+            <table class="modal-data-table">
+              <tbody>
+                <tr>
+                  <td class="modal__characteristic-rating"><span class="modal__characteristic-rating--text">Vote /
+                      Votes</span> </td>
+                  <td class="modal__characteristic-rating"> <span class="modal__characteristic-inform--accent"
+                      id="averageRating">8.8</span> /
+                    <span class="modal__characteristic-inform" id="rating">1912</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="modal__characteristic-popularity"><span
+                      class="modal__characteristic-popularity--text">Popularity</span></td>
+                  <td class="modal__characteristic-popularity"> <span class="modal__characteristic-inform"
+                      id="popularity">10410.3</span> </td>
+                </tr>
+                <tr>
+                  <td class="modal__characteristic-title"><span class="modal__characteristic-title--text">Original
+                      Title</span></td>
+                  <td class="modal__characteristic-title"> <span class="block-style modal__characteristic-inform"
+                      id="title">Wednesday</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="modal__characteristic-genre"><span class="modal__characteristic-genre--text">Genre</span>
+                  </td>
+                  <td class="modal__characteristic-genre"> <span class="block-style modal__characteristic-inform"
+                      id="genre"> Fantasy,
+                      Mystery, Comedy</span> </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h3 class="modal__about">ABOUT</h3>
+          <p class="modal__about-text" id="aboutMovie">Wednesday Addams is sent to Nevermore Academy, a
+            bizarre boarding
+            school where she attempts to master her psychic powers, stop a monstrous killing spree of the
+            town citizens, and
+            solve the supernatural mystery that affected her family 25 years ago — all while navigating her
+            new
+            relationships.</p>
+          <div class="modal-buttons" id="movie-modal-buttons-wrapper"> <button
+              class="modal__add-to-watched btn-modal-film__disabled" type="button" name="add-watched-btn"
+              id="watched-btn" disabled="">
+              ADD TO WATCHED</button> <button class="modal__add-to-queue btn-modal-film__disabled" type="button"
+              name="add-queue-btn" id="queue-btn" disabled="">
+              ADD TO QUEUE</button></div>
+        </div>
+      </li>
+    </ul>
+    <div class="close">
+      <button type="button" class="modal__close" data-modal-close="">
+        <svg class="modal__close-icon">
+          <use class="use" href="/src/images/Vector-close.svg#Vector-close"></use>
+        </svg>
       </button>
     </div>
 
-    <div class="modal-poster">
-      <img
-        src="https://m.media-amazon.com/images/M/MV5BM2ZmMjEyZmYtOGM4YS00YTNhLWE3ZDMtNzQxM2RhNjBlODIyXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_.jpg"
-        class="poster"
-        alt="poster"
-        id="poster"
-        width="300"
-      />
-    </div>
-
-    <div id="modal-placeholder" class="hidden modal-placeholder-thumb">
-      <span class="modal-placeholder-poster">
-        <span class="modal-placeholder-tittle-wrapper">
-          <span class="modal-placeholder-tittle"></span>
-        </span>
-      </span>
-    </div>
-
-    <div class="loader-movie">
-      <div class="loader-spinner"></div>
-    </div>
-
-    <div class="modal-info">
-      <h2 class="modal__title" id="modalTitle">Film name</h2>
-      <div class="modal-data">
-        <table class="modal-data__table">
-          <tbody>
-            <tr>
-              <td class="modal-rating"></td>
-              <td>
-                <span class="modal-inform__accent" id="aveRating"
-                  >Vote / Votes</span
-                >
-                " /"
-                <span class="modal-inform" id="rating"></span>
-              </td>
-            </tr>
-            <tr>
-              <td class="modal-popularity">Popularity</td>
-              <td class="modal-popularity">
-                <span class="modal-inform" id="popularity"></span>
-              </td>
-            </tr>
-            <tr>
-              <td class="modal-about_title"></td>
-              <td class="modal-about_title">
-                <span class="block-style modal-inform" id="title"></span>
-              </td>
-            </tr>
-            <tr>
-              <td class="modal-genre">Genre</td>
-              <td class="modal-genre">
-                <span class="block-style modal-inform" id="genre"></span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <h3 class="modal-about">ABOUT</h3>
-      <p class="modal-about__text" id="aboutMovie"></p>
-      <div class="buttons">
-        <button
-          type="button"
-          name=""
-          class="addInStorageWantWatch"
-          data-addInStorageWatched
-          id=""
-        >
-          add to Watched
-        </button>
-        <button
-          type="button"
-          name=""
-          class="addInStorageAlreadyWatched"
-          data-addInStorageWantWatch
-          id=""
-        >
-          add to queue
-        </button>
-      </div>
-    </div>
   </div>
+
 </div>
