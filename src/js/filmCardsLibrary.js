@@ -17,7 +17,7 @@ export default function createCardLibrary(data){
     }).join("");
 
     // console.log(markup);
-    if (location.pathname === '/library.html') {
+    if (cardsListLibrary) {
 cardsListLibrary.innerHTML =  markup;
 }
 }
