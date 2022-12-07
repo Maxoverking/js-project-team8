@@ -7,7 +7,7 @@ const movieGalleryFetch = new FetchData();
 
 // Получаем данные
 
-if (location.pathname === '/index.html') {
+
   movieGalleryFetch
     .getTrendingData(1)
     .then(response => {
@@ -19,9 +19,7 @@ if (location.pathname === '/index.html') {
         console.log('index err');
         console.log(err.message);
     });
-}else{
-    return;
-}
+
 //Функция создания карточки на странице Home
 export default function createCard(data) {
     const markup = data.map(obj => {
