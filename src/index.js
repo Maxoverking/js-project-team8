@@ -10,6 +10,7 @@ import './js/filmCardsLibrary.js';
 import './js/footer-modal.js';
 import './js/functionSearch.js';
 import './js/scroll-top.js';
+import './js/loader.js';
 
 //Это пример его раскоментить посмотреть что приходит
 
@@ -23,7 +24,7 @@ import './js/scroll-top.js';
 //   .catch(err => {
 //     console.log('index err');
 //     console.log(err.message);
-//   }); 
+//   });
 
 // movieGalleryFetch               //<-- пример в ввода в поиск фильма
 //     .getSearchData('AVENGERS') //и данные на все совпадения
@@ -31,7 +32,7 @@ import './js/scroll-top.js';
 //   .catch(err => {
 //     console.log('index err');
 //     console.log(err.message);
-//   }); 
+//   });
 
 //если хотите получить данные в своей папки с js
 //импорт такой
@@ -45,4 +46,4 @@ import './js/scroll-top.js';
 //   .catch(err => {
 //     console.log('index err');
 //     console.log(err.message);
-//   }); 
+//   });
