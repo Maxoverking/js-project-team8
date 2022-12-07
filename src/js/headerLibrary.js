@@ -1,13 +1,12 @@
 import createCardLibrary from './filmCardsLibrary.js';
 
-
 const refs = {
   body: document.querySelector('body'),
 };
 refs.body.addEventListener('click', onClickButton);
 
 function onClickButton(e) {
-  if (e.target.hasAttribute('data-addinstoragewantwatched')) {
+  if (e.target.hasAttribute('data-addinstoragewantwatch')) {
     addInWantWatchList(e);
   }
 
@@ -91,14 +90,23 @@ function addInWatchedList(e) {
 }
 
 function addInLibraryWatched() {
-  let filmListWatched =
-  JSON.parse(localStorage.getItem('filmListWatched')) || [];
+  refs.body.querySelector('[data-render-watched]').classList.add('action');
+  refs.body.querySelector('[data-render-queue]').classList.remove('action');
+  const rerender = refs.body.querySelector('.cards__list--library');
+  rerender.innerHTML = '';
+  const filmListWatched =
+    JSON.parse(localStorage.getItem('filmListWatched')) || [];
   createCardLibrary(filmListWatched);
 }
 
 function addInLibraryQueue() {
-  let filmListWantWatch =
+  refs.body.querySelector('[data-render-watched]').classList.remove('action');
+  refs.body.querySelector('[data-render-queue]').classList.add('action');
+  const rerender = refs.body.querySelector('.cards__list--library');
+  rerender.innerHTML = '';
+
+  const filmListWantWatch =
     JSON.parse(localStorage.getItem('filmListWantWatch')) || [];
   createCardLibrary(filmListWantWatch);
 }
-addInLibraryWatched()
+addInLibraryWatched();
