@@ -6,8 +6,6 @@ const cardsList = document.querySelector('.cards__list');
 const movieGalleryFetch = new FetchData();
 
 // Получаем данные
-
-
   movieGalleryFetch
     .getTrendingData(1)
     .then(response => {
