@@ -27,7 +27,8 @@ function toggleModal() {
 //слушатель списка
 if (location.pathname === '/library.html') {
   cardsListLibrary.addEventListener('click', onClick);
-} else if(location.pathname === '/index.html') {
+}
+if (location.pathname === '/index.html') {
   list.addEventListener('click', onClick);
 }
 

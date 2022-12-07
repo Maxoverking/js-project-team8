@@ -16,7 +16,7 @@ export default function createCardLibrary(data){
     </li>`
     }).join("");
 
-    console.log(markup);
+    // console.log(markup);
     if (location.pathname === '/library.html') {
 cardsListLibrary.innerHTML =  markup;
 }

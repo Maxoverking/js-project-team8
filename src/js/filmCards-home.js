@@ -6,7 +6,9 @@ const cardsList = document.querySelector('.cards__list');
 const movieGalleryFetch = new FetchData();
 
 // Получаем данные
-movieGalleryFetch
+
+if (location.pathname === '/index.html') {
+  movieGalleryFetch
     .getTrendingData(1)
     .then(response => {
        console.log('даные которые пришли',response.data);
@@ -17,7 +19,9 @@ movieGalleryFetch
         console.log('index err');
         console.log(err.message);
     });
-
+}else{
+    return;
+}
 //Функция создания карточки на странице Home
 export default function createCard(data) {
     const markup = data.map(obj => {
