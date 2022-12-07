@@ -14,6 +14,7 @@ function toggleModal() {
     poster.src = filmClick.poster_path;
 }
 
+
 //слушатель списка
 list.addEventListener('click', onClick)
 
@@ -26,6 +27,8 @@ function onClick(evt) {
     toggleModal()
 
 }
+
+
 
 // функция поиска данных фильма 
 function searchId(id) {

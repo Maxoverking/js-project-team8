@@ -12,18 +12,28 @@
     transform: scale(0.5);
 }
 
+
+
+
+
 .modal {
+    @media screen and (min-width: 1280px) {
+        width: 806px;
+    
+    }
+
     @media screen and (min-width: 768px) and (max-width: 1279.98px){
-    width: 806px;
-    height: min-content;
+    width: 704px;
+    
     }
 
      @media screen and (max-width: 767.98px){
-        width: 380px;
-        height: 940px;
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
      }
 
-    
+    overflow: auto;
     background: #FFFFFF;
     border-radius: 4px;
     position: absolute;
@@ -52,6 +62,10 @@ display: block;
 // @media screen and (min-width: 768px) and (max-width: 1279.98px)
 
 .modal_position__flex + .modal_position__flex{
+
+@media screen and (min-width: 1280px) {
+margin-left: 20px;
+}
 @media screen and (min-width: 768px) and (max-width: 1279.98px){
 margin-left: 40px;
 }
@@ -61,12 +75,23 @@ margin-left: 20px;
 }
 
 .poster {
-    width: 375px;
-    height: 478px;
     object-fit: cover;
     object-position: top;
     border-radius: 5px;
     display: block;
+
+    @media screen and (min-width: 1280px) {
+        width: 375px;
+        }
+    
+        @media screen and (min-width: 768px) and (max-width: 1279.98px) {
+        width: 264px;
+        }
+    
+        @media screen and (max-width: 767.98px) {
+        width: 240px;
+        }
+    
 }
 
 .modal-poster__placeholder-thumb {
@@ -88,7 +113,7 @@ margin-left: 20px;
 }
 
 .modal-info {
-    max-width: 264px;
+    // max-width: 364px;
     flex-direction: column;
     display: flex;
 }
@@ -153,6 +178,7 @@ td{
     font-weight: 500;
     line-height: 20px;
     overflow: auto;
+    padding-bottom: auto;
 }
 
 .modal__characteristic-inform--accent{
@@ -168,7 +194,9 @@ td{
     margin-right: 15px;
 }
 
-.modal__add-to-watched{
+
+.modal__add-to-watched,
+.modal__add-to-queue{
     background: #ffffff;
     border-radius: 5px;
     border: 1px solid #000000;
@@ -177,26 +205,37 @@ td{
     padding: 8px;
 }
 
-.modal__add-to-watched:hover{
- background-color:#FF6B01;
- color: #FFFFFF;
+.modal__add-to-watched:hover,
+.modal__add-to-queue:hover{
+background-color: var(--activeColor);
+color: var(--white);
+transition: background-color .4s;
+
 }
 
 
-.modal__add-to-queue{
-    background: #ffffff;
-    border-radius: 5px;
-    border: 1px solid #000000;
-    color: #000000;
-    font-size: 12px;
-    padding:8px;
-}
-
-.modal__add-to-queue:hover {
-    background-color: #FF6B01;
-    color: #FFFFFF;
+.modal__close{
+    width: 30px;
+    height: 30px;
+        position: absolute;
+            top: 8px;
+            right: 8px;
 }
 
 
+.modal__close {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: #FFFFFF;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
+
+.modal__close-icon{
+    width: 12px;
+    height: 12px;
+}
 
 
