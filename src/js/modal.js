@@ -1,5 +1,5 @@
 import { addInLocalStorage } from './headerLibrary';
-// const cardsListLibrary = document.querySelector('.cards__list--library');
+const cardsListLibrary = document.querySelector('.cards__list--library');
 const list = document.querySelector('.cards__list');
 const modal = document.querySelector('[data-modal]');
 const closeModalBtn = document.querySelector('[data-modal-close]');
@@ -25,8 +25,12 @@ function toggleModal() {
 }
 
 //слушатель списка
-list?.addEventListener('click', onClick);
-// cardsListLibrary?.addEventListener('click', onClick);
+if (location.pathname === '/library.html') {
+  cardsListLibrary.addEventListener('click', onClick);
+} else {
+  list.addEventListener('click', onClick);
+}
+
 
 // передача данных
 export function onClick(evt) {
