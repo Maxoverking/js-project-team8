@@ -79,3 +79,25 @@
         line-height: 1.2;
     }
 }
+
+.cards__rating {
+    position: absolute;
+    width: 36px;
+    height: 16px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.16;
+    color: var(--white);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: var(--activeColor);
+    border-radius: 5px;
+    margin-left: 8px;
+    @media screen and (min-width: 1280px) {
+        width: 40px;
+        height: 20px;
+    }
+}
