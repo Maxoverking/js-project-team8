@@ -1,6 +1,10 @@
 import { addInLocalStorage } from './headerLibrary';
 const cardsListLibrary = document.querySelector('.cards__list--library');
+
+console.log("🚀  cardsListLibrary", cardsListLibrary);
 const list = document.querySelector('.cards__list');
+
+console.log("🚀  listHome", list);
 const modal = document.querySelector('[data-modal]');
 const closeModalBtn = document.querySelector('[data-modal-close]');
 const poster = document.querySelector('.poster');
@@ -26,13 +30,13 @@ function toggleModal() {
 
 //слушатель списка
 console.log("🚀  location.pathname", location.pathname);
-if (location.pathname === '/library.html') {
-  cardsListLibrary.addEventListener('click', onClick);
-}else{
+if ( cardsListLibrary === null) {
   list.addEventListener('click', onClick);
+}else{
+  cardsListLibrary.addEventListener('click', onClick);
 }
-
-
+// cardsListLibrary === null
+// location.pathname === '/library.html'
 // передача данных
 export function onClick(evt) {
   const id = evt.path[1].parentElement.id;
