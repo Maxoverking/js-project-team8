@@ -7,6 +7,8 @@ console.log("🚀  cardsListLibrary", cardsListLibrary);
 const cardsList = document.querySelector('.cards__list');
 
 const movieGalleryFetch = new FetchData();
+
+
 // Получаем данные
 if (cardsListLibrary !== null) {
     return;
