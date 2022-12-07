@@ -1,6 +1,6 @@
 import Notiflix from 'notiflix';
 import FetchData from './FetchData.js';
-import createCard from './filmCards-home.js';
+import {createCard,insertMarkup} from './filmCards-home.js';
 import pagination from './pagination.js';
 
 const cardsList = document.querySelector('.cards__list');
@@ -29,8 +29,7 @@ form.addEventListener('submit', e => {
         setTimeout(()=> message.classList.remove("visible"), 4000)
        }
        else {
-        cardsList.innerHTML = ""
-           createCard(response.data);
+           insertMarkup(createCard(response.data), cardsList);
             Notiflix.Loading.remove(500);
            pagination(response);
        }  
