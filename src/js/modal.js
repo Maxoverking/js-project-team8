@@ -59,3 +59,12 @@ function searchId(id) {
   // фильм
   //   console.log(filmClick)
 }
+
+// function modalRender(data) {
+//   const mood = data.map(obj => {
+//     const id = obj;
+//     console.log();
+//     return ``
+//   })
+// }
+
