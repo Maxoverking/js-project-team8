@@ -1,4 +1,5 @@
-.cards__list {
+.cards__list,
+.cards__list--library {
     display: flex;
     flex-direction: column;
     gap: 20px;
