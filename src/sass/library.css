@@ -36,6 +36,16 @@ body {
   font-weight: 500;
 }
 
+.dowm-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+section {
+  flex-grow: 1;
+}
+
 body.modal-open {
   overflow: hidden;
 }
@@ -95,6 +105,35 @@ a {
   overflow: hidden;
   border: 0;
   clip: rect(0 0 0 0);
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+  padding: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--activeColor);
+  border-radius: 15px;
+  border: white 1px solid;
+}
+
+::-moz-selection {
+  background: var(--activeColor); /* WebKit/Blink Browsers */
+  color: white;
+}
+
+::selection {
+  background: var(--activeColor); /* WebKit/Blink Browsers */
+  color: white;
+}
+
+::-moz-selection {
+  background: var(--activeColor); /* Gecko Browsers */
 }
 
 .backdrop {
@@ -507,6 +546,10 @@ a {
     opacity: 0;
   }
 }
+.action-liblary {
+  background-color: var(--activeColor);
+}
+
 #pagination-list {
   display: flex;
   justify-content: center;
