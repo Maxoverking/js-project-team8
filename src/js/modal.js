@@ -8,7 +8,7 @@ const cardsListLibrary = document.querySelector('.cards__list--library');
 
 const list = document.querySelector('.cards__list');
 const modal = document.querySelector('[data-modal]');
-const modalMarkup = document.querySelector('.modal_position');
+const modalMarkup = document.querySelector('.modal__info');
 
 const closeModalBtn = document.querySelector('[data-modal-close]');
 const poster = document.querySelector('.poster');
@@ -27,11 +27,13 @@ closeModalBtn.addEventListener('click', toggleModal);
 //открытия и закрытия модалки
 function toggleModal() {
   modal.classList.toggle('is-hidden');
+  document.body.classList.toggle("modal-open");
   addInStorageWantWatch.id = filmClick.id;
   addInStorageWatched.id = filmClick.id;
-
+  window.removeEventListener("keydown", onEscapeClose)
   // очищаем html модалки(кроме кнопок и кнопки закрытия)
-  clearModarMarkup()
+  clearModarMarkup();
+
 }
 
 // console.log("🚀  location.pathname", location.pathname);
@@ -53,6 +55,7 @@ export function onClick(evt) {
   // рисуем разметку модалки при открытии
   console.log(filmClick);
   createModaMarckup(filmClick);
+  window.addEventListener("keydown", onEscapeClose);
 }
 
 // функция поиска данных фильма
@@ -109,7 +112,7 @@ function createModaMarckup(obj) {
                   <td class="modal__characteristic-title"><span class="modal__characteristic-title--text">Original
                       Title</span></td>
                   <td class="modal__characteristic-title"> <span class="block-style modal__characteristic-inform"
-                      id="title">Wednesday</span>
+                      id="title">${title}</span>
                   </td>
                 </tr>
                 <tr>
@@ -151,4 +154,15 @@ function findGenresOfMovie(ids) {
     return movieGenres = 'Not found';
   }
   return movieGenres.join(', ');
+}
+
+function onEscapeClose(e) {
+  if (e.code === "Escape") {
+    modal.classList.toggle('is-hidden');
+    document.body.classList.toggle("modal-open");
+    addInStorageWantWatch.id = filmClick.id;
+    addInStorageWatched.id = filmClick.id;
+    clearModarMarkup();
+    window.removeEventListener("keydown", onEscapeClose)
+  }
 }
