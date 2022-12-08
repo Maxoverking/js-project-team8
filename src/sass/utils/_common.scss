@@ -27,6 +27,7 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
 :root{
+--modal-background: rgba(0, 0, 0, 0.2);
 --primary-font-family: 'Roboto';
 --white: #ffffff;
 --darkColor: #000000;
@@ -35,5 +36,6 @@
 --activeColor: #ff6b08;
 --redColor: #ff001b;
 --buttonActive: #FF6B01;
+--modalCardCharacterFilm: #8C8C8C;
 }
 
