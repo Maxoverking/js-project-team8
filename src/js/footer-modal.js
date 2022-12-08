@@ -7,7 +7,7 @@ import evgenyUrl from '../images/team-pictures/evgeny.webp';
 import romanUrl from '../images/team-pictures/roman.webp';
 import romaUrl from '../images/team-pictures/roma.webp';
 import SerChistyakovUrl from '../images/team-pictures/SerChistyakov.webp';
-import ivanKUrl from '../images/team-pictures/ivanK.webp';
+import vanoUrl from '../images/team-pictures/vano.webp';
 import svgGit from '../images/sprite.svg';
 
 const openFtrModalBtn = document.querySelector('[data-modal-btn]');
@@ -147,7 +147,7 @@ function createTeamCardMarkup() {
                           </div>
                         </li>
                          <li class="team-data">
-                            <img  class="round" src="${SerChistyakovUrl}" alt="Ivan Sytnik" >
+                            <img  class="round" src="${vanoUrl}" alt="Ivan Sytnik" >
                             <a class="github" target="_blank" href="https://github.com/IvanSytnik" aria-label="github">
                             <svg width="26" height="20"; >
                                 <use href="${svgGit}#icon-github"></use>
