@@ -33,7 +33,7 @@ function gliderRenderFilms(data) {
     const rate = vote_average.toFixed(1).toString();
         return ` <li class="glider-card" data-action='${id}'>
     <div class="gli-title-name">
-      <p class="glider-original_title" data-id='${id}'>${original_title}</p>
+      <p class="glider-original_title" data-id='${id}'>${title}</p>
       <div class="thumb">
       <span class="cards__rating">${rate}</span>
         <img class="glider-image"
