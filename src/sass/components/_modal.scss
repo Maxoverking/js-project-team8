@@ -85,7 +85,7 @@
 }
 
 .modal-poster{
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     min-width: 240px;
 
     @media (min-width: 768px) {
@@ -120,19 +120,27 @@
 }
 
 .modal__title {
-    margin-bottom: 20px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
     font-size: 20px;
     font-weight: 500;
     line-height: 1.17;
+
+    @media (min-width: 768px) {
+            margin-bottom: 20px;
+    
+        }
 
        
 }
 
 .modal-table {
+    margin-bottom: 10px;
 
-    margin-bottom: 20px;
-    
+    @media (min-width: 768px) {
+            margin-bottom: 20px;
 
+        }
 }
 
 .modal-table__row + .modal-table__row{
