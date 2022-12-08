@@ -33,7 +33,9 @@
 
     width: 100%;
     max-width: 280px;
+    max-height: 600px;
     justify-content: center;
+    
     overflow-y: auto;
 
     // overflow: auto;
@@ -46,7 +48,7 @@
     0px 1px 1px rgba (0 0 0, 0.14),
     0px 2px 1px rgba (0 0 0, 0, 2);
     transition: 250ms;
-    padding-top: 38px;
+    padding-top: 40px;
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 40px;
@@ -87,7 +89,6 @@
 }
 
 .modal-poster{
-    margin-bottom: 10px;
     min-width: 240px;
 
     @media (min-width: 768px) {
@@ -106,43 +107,31 @@
 .poster {
     border-radius: 5px;
     display: block;
+    margin-bottom: 20px;
 
 }
 
 
 
 .film-info__about {
-    margin-bottom: 10px;
-    @media (min-width: 768px) {
             margin-bottom: 20px;
-    
-        }
 
-   
 }
 
 .modal__title {
     text-transform: uppercase;
-    margin-bottom: 10px;
+
     font-size: 20px;
     font-weight: 500;
     line-height: 1.17;
 
-    @media (min-width: 768px) {
-            margin-bottom: 20px;
-    
-        }
-
-       
+           margin-bottom: 20px;
+      
 }
 
 .modal-table {
-    margin-bottom: 10px;
 
-    @media (min-width: 768px) {
             margin-bottom: 20px;
-
-        }
 }
 
 .modal-table__row + .modal-table__row{
@@ -219,17 +208,13 @@
 
 
 .modal-about__text {
-    height: 60px;
-    
-    overflow: scroll;
     text-align: left;
     font-weight: 500;
-    line-height: 1.33;
+    line-height: 1.66;
 
     @media (min-width: 768px) {
             height: 100%;
         }
-    
     }
 
 .buttons {
@@ -238,7 +223,6 @@
 
     @media (min-width: 768px) {
         justify-content:flex-start;
-
     }
 
 }
@@ -307,14 +291,6 @@
                  }
 
 }
-
-
-
-
-
-
-
-
 
 
 .modal__add-to-watched {
