@@ -29,6 +29,10 @@
 }
 
 .modal {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+
     overflow: auto;
     background: #ffffff;
     position: absolute;
@@ -44,20 +48,18 @@
     padding-right: 20px;
     padding-bottom: 40px;
     
-    @media screen and (min-width: 1280px) {
-        width: 806px;
-    }
 
-    @media screen and (min-width: 768px) and (max-width: 1279.98px) {
-        width: 704px;
-    }
-
-    @media screen and (max-width: 767.98px) {
-        width: 100%;
-        max-width: 280px;
-        justify-content: center;
-    }
-
+    @media (min-width: 768px) {
+            max-width: 704px;
+            padding-left: 36px;
+                padding-right: 72px;
+        }
+    
+        @media (min-width: 1280px) {
+            max-width: 806px;
+            padding-left: 12px;
+                padding-right: 12px;
+        }
 
 }
 
@@ -69,11 +71,39 @@
 
 .modal-container {
     display: flex;
+    flex-direction: column;
 
-    @media screen and (max-width: 767.98px) {
-        display: block;
-    }
+        @media (min-width: 768px) {
+
+                flex-direction: row;
+            }
 }
+
+.modal-poster{
+    margin-bottom: 20px;
+}
+
+
+.poster {
+    border-radius: 5px;
+    display: block;
+    max-width: 240px;
+
+    @media (min-width: 768px) {
+            max-width: 264px;
+        }
+    
+        @media (min-width: 1280px) {
+            max-width: 375px;
+        }
+}
+
+
+
+
+
+
+
 
 
 
@@ -90,28 +120,6 @@
         margin-left: 20px;
     }
 }
-
-.poster {
-    // object-fit: cover;
-    // object-position: top;
-    border-radius: 5px;
-    display: block;
-    max-width: 240px;
-
-
-    @media (min-width: 768px) {
-
-            max-width: 264px;
-        }
-    
-    
-        @media (min-width: 1280px) {
-            max-width: 375px;
-        }
-
-}
-
-
 
 .film-info {
     // max-width: 364px;
