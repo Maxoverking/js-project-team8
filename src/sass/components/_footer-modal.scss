@@ -4,7 +4,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba($color: #6a4618, $alpha: .7); 
+    background-color: rgba($color: #cbb395, $alpha: .7); 
     opacity: 0;
     visibility: hidden;
     transition: all 250ms ease-in-out;
@@ -24,7 +24,7 @@
     border: none;
     border-radius: 20px;
     transition: transform 800ms ease-in-out;
-    background-color: var(--footerColor);
+    background-color: rgb(27, 8, 8);
     overflow-y: auto;
     overflow-x: hidden;
           @media (max-width: 520px) {
@@ -48,9 +48,10 @@ transform: translate(-50%,-50%) ;
     font-size: 1.5em;
     
     &-name{
+    padding-top: 10px;
     transform: scale(2.0);
-  	font-size: xx-large;
-  	color:rgb(255, 127, 92);
+  	font-size: x-large;
+  	color:rgb(128, 45, 28);
   }
 }
 .round {
@@ -81,6 +82,9 @@ height: 140px;
     flex-direction: column;
     align-items: center;
     padding-top: 10px;
+    &> p,span{
+color: rgba(255, 248, 124, 0.8);
+    }
 }
 .github{
     position: absolute;
@@ -94,4 +98,19 @@ height: 140px;
     fill: #0b0b0b;
 }
 }
+.on{
+    color: rgb(243, 248, 110);
+text-shadow: -9px -24px 20px #FFC21D, 9px -19px 20px #FFC21D,
+ 7px 21px 18px rgba(255,194,29,0.83), 
+ 7px 21px 18px rgba(255,194,29,0.83),
+  -13px 21px 18px rgba(255,194,29,0.83), 
+  40px 21px 18px rgba(255,194,29,0.83), 
+  40px -26px 20px rgba(255,194,29,0.83), 
+  40px -6px 20px rgba(255,194,29,0.83), 
+  40px -6px 20px rgba(255,194,29,0.83), 
+  40px -6px 20px rgba(255,194,29,0.83),
+   40px 15px 20px rgba(255,194,29,0.83), 
+   40px 15px 20px rgba(255,194,29,0.83),
+ 40px 15px 20px rgba(255,194,29,0.83),
+  40px 15px 20px rgba(255,194,29,0.83);}
 
