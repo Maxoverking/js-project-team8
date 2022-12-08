@@ -1,5 +1,5 @@
 import FetchData from './FetchData';
-import createCard from './filmCards-home';
+import {createCard,insertMarkup,cardsList} from './filmCards-home';
 import svgArrows from '../images/sprite.svg';
 
 const movieGalleryFetch = new FetchData();
@@ -36,7 +36,10 @@ const paginationMarkup = (arr = [], page = 1) => {
 };
 
 const getArrPageNumbersForView = (currentPage, totalPages) => {
-  const buttonsQuantity = 9;
+
+
+
+  const buttonsQuantity = totalPages < 9 ? totalPages : 9;
   const ArrPageNumbersForView = [];
 
   let start = currentPage - Math.floor(buttonsQuantity / 2);
@@ -67,9 +70,9 @@ const getArrPageNumbersForView = (currentPage, totalPages) => {
   return ArrPageNumbersForView;
 };
 
-const markupUpdate = obj => {
-  createCard(obj.data);
-  pagination(obj);
+const markupUpdate = (obj,htmlEl) => {
+  insertMarkup(createCard(obj.data), htmlEl);
+    pagination(obj);
 };
 
 const fetchPage = async (page = 1, search = '') => {
@@ -83,7 +86,7 @@ const fetchPage = async (page = 1, search = '') => {
 };
 
 const onArrowClick = (evt, currentPage) => {
-  const arrowEl = evt.target.closest('.arrow')
+  const arrowEl = evt.target.closest('.arrow');
   if (arrowEl.hasAttribute('data-left_one_page')) {
     const prevPage = currentPage - 1;
     return prevPage < 1 ? 1 : prevPage;
@@ -101,15 +104,14 @@ const onPaginationItemClick = async evt => {
   const paginButtonContent = evt.target.textContent;
   if (!(pageNum = parseInt(paginButtonContent))) pageNum = 1;
   if (paginButtonContent === '...') return;
-  if (evt.target.closest('.arrow'))
-    pageNum = onArrowClick(evt, currentPage);
+  if (evt.target.closest('.arrow')) pageNum = onArrowClick(evt, currentPage);
 
   const data = await fetchPage(pageNum, search);
-  markupUpdate(data);
+  markupUpdate(data, cardsList);
   window.scrollTo(0, 0);
 };
 
-export default function pagination(fetchObj) {
+ function pagination(fetchObj) {
   const paginationEl = document.querySelector('#pagination-list');
 
   paginationEl.innerHTML = paginationMarkup(
@@ -120,3 +122,13 @@ export default function pagination(fetchObj) {
   total_pages = fetchObj.total_pages;
   paginationEl.addEventListener('click', onPaginationItemClick);
 }
+
+export {
+  pagination,
+  onPaginationItemClick,
+  paginationMarkup,
+  onArrowClick,
+  fetchPage,
+  markupUpdate,
+  getArrPageNumbersForView,
+};
