@@ -110,7 +110,11 @@
 
 
 .film-info__about {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    @media (min-width: 768px) {
+            margin-bottom: 20px;
+    
+        }
 
    
 }
@@ -127,7 +131,7 @@
 .modal-table {
 
     margin-bottom: 20px;
-
+    
 
 }
 
@@ -205,12 +209,12 @@
 
 
 .modal-about__text {
-    height: 100px;
+    height: 60px;
     
     overflow: scroll;
     text-align: left;
     font-weight: 500;
-    line-height: 1.66;
+    line-height: 1.33;
 
     @media (min-width: 768px) {
             height: 100%;
