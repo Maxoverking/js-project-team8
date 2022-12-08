@@ -55,7 +55,6 @@ export function onClick(evt) {
   toggleModal();
 
   // рисуем разметку модалки при открытии
-  console.log(filmClick);
   createModaMarckup(filmClick);
   window.addEventListener("keydown", onEscapeClose);
   backdrop.addEventListener("click", onClickClose);
