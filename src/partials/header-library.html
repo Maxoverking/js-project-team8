@@ -1,31 +1,40 @@
 <header class="header">
-    <div class="container">
-        <nav class="site-nav">
-            <a href="/src/index.html" class="site-nav__logo">
-                <svg class="svg-film" width="24" height="24">
-                    <use href="/src/images/sprite.svg#film"></use>
-                </svg>
-                <span class="logo-text">Filmoteka</span>
-            </a>
-            <ul class="menu">
-                <li class="menu__item">
-                    <a href="/src/index.html" class="menu__link" aria-label="index">Home</a>
-                </li>
-                <li class="menu__item">
-                    <a href="/src/library.html" class="menu__link menu-link--current" aria-label="library">my library</a>
-                </li>
-            </ul>
-            </nav>
+  <div class="container">
+    <nav class="site-nav">
+      <a href="/src/index.html" class="site-nav__logo">
+        <svg class="svg-film" width="24" height="24">
+          <use href="/src/images/sprite.svg#film"></use>
+        </svg>
+        <span class="logo-text">Filmoteka</span>
+      </a>
+      <ul class="menu">
+        <li class="menu__item">
+          <a href="/src/index.html" class="menu__link" aria-label="index"
+            >Home</a
+          >
+        </li>
+        <li class="menu__item">
+          <a
+            href="/src/library.html"
+            class="menu__link menu-link--current"
+            aria-label="library"
+            >my library</a
+          >
+        </li>
+      </ul>
+    </nav>
 
-            <ul class="button header__button">
-                <li class="button-item">
-                    <button type="button" class="button-switches">Watched</button>
-                </li>
-                <li class="button-item">
-                    <button type="button" class="button-switches">queue</button>
-                </li>
-            </ul>
-    </div>
+    <ul class="button header__button">
+      <li class="button-item">
+        <button type="button" class="button-switches" data-render-watched>
+          Watched
+        </button>
+      </li>
+      <li class="button-item">
+        <button type="button" class="button-switches" data-render-queue>
+          queue
+        </button>
+      </li>
+    </ul>
+  </div>
 </header>
-
-
