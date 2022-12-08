@@ -36,8 +36,13 @@ const paginationMarkup = (arr = [], page = 1) => {
 };
 
 const getArrPageNumbersForView = (currentPage, totalPages) => {
-  const buttonsQuantity = 9;
+  let buttonsQuantity = 9;
   const ArrPageNumbersForView = [];
+
+  // добавил window innerWidth
+  if (window.innerWidth < 768) {
+    buttonsQuantity = 5;
+  }
 
   let start = currentPage - Math.floor(buttonsQuantity / 2);
   let end = currentPage + Math.floor(buttonsQuantity / 2);
@@ -53,14 +58,20 @@ const getArrPageNumbersForView = (currentPage, totalPages) => {
 
   for (let index = start; index <= end; index++) {
     let pageNum = index;
-    if (index === start) pageNum = 1;
-    if (index === end) pageNum = totalPages;
-    if (
-      (index === start + 1 && pageNum != 2) ||
-      (index === end - 1 && pageNum != totalPages - 1)
-    ) {
-      ArrPageNumbersForView.push('...');
-      continue;
+
+    // добавил window.innerWidth
+    if (window.innerWidth > 767) {
+      if (index === start) pageNum = 1;
+      if (index === end) pageNum = totalPages;
+    }
+    if (window.innerWidth > 767) {
+      if (
+        (index === start + 1 && pageNum != 2) ||
+        (index === end - 1 && pageNum != totalPages - 1)
+      ) {
+        ArrPageNumbersForView.push('...');
+        continue;
+      }
     }
     ArrPageNumbersForView.push(pageNum);
   }
@@ -83,7 +94,7 @@ const fetchPage = async (page = 1, search = '') => {
 };
 
 const onArrowClick = (evt, currentPage) => {
-  const arrowEl = evt.target.closest('.arrow')
+  const arrowEl = evt.target.closest('.arrow');
   if (arrowEl.hasAttribute('data-left_one_page')) {
     const prevPage = currentPage - 1;
     return prevPage < 1 ? 1 : prevPage;
@@ -101,8 +112,7 @@ const onPaginationItemClick = async evt => {
   const paginButtonContent = evt.target.textContent;
   if (!(pageNum = parseInt(paginButtonContent))) pageNum = 1;
   if (paginButtonContent === '...') return;
-  if (evt.target.closest('.arrow'))
-    pageNum = onArrowClick(evt, currentPage);
+  if (evt.target.closest('.arrow')) pageNum = onArrowClick(evt, currentPage);
 
   const data = await fetchPage(pageNum, search);
   markupUpdate(data);
@@ -119,4 +129,17 @@ export default function pagination(fetchObj) {
   search = fetchObj.query;
   total_pages = fetchObj.total_pages;
   paginationEl.addEventListener('click', onPaginationItemClick);
+
+  // добавил window
+  window.addEventListener(
+    'resize',
+
+    function (event) {
+      paginationEl.innerHTML = paginationMarkup(
+        getArrPageNumbersForView(fetchObj.page, fetchObj.total_pages),
+        fetchObj.page
+      );
+    },
+    true
+  );
 }
