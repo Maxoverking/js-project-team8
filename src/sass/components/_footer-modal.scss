@@ -29,7 +29,7 @@
     overflow-x: hidden;
           @media (max-width: 520px) {
             width: 86%;
-            height: 66%;
+            height: 70%;
   }
            @media (min-width: 1100px) {
             width: 900px;
@@ -96,7 +96,7 @@ color: rgba(255, 248, 124, 0.8);
     &:hover{
     transform:scale(1.5) translateY(10);
     fill: #0b0b0b;
-}
+    }
 }
 .on{
     color: rgb(243, 248, 110);
