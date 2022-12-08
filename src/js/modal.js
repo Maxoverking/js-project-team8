@@ -85,22 +85,19 @@ function createModaMarckup(obj) {
     id,
   } = obj;
   const rate = vote_average.toFixed(1).toString();
-  const markup = `<div class="modal-container">
+  const markup = `
+<div class="modal-container">
+
         <div class="modal-poster">
           <img
             src="${poster_path}"
             class="poster" alt="poster" id="poster">
         </div>
-            <div class="buttons">
-              <button type="button" name="" class="addInStorageWantWatch" data-addInStorageWatched id="${id}">
-                add to Watched
-              </button>
-              <button type="button" name="" class="addInStorageAlreadyWatched" data-addInStorageWantWatch id="${id}">
-                add to queue
-              </button>
-    </div>
+        
         <div class="film-info">
-          <h2 class="modal__title" id="modalTitle">${title}</h2>
+
+          <div class="film-info__about">
+            <h2 class="modal__title" id="modalTitle">${title}</h2>
             <table class="modal-table">
                 <tr class="modal-table__row">
                   <td class="modal-table__title">Vote/Votes</td>
@@ -116,14 +113,26 @@ function createModaMarckup(obj) {
                 </tr>
                 <tr class="modal-table__row">
                   <td class="modal-table__title">Genre</td>
-                  <td class="modal-table__info">${findGenresOfMovie(
-                    genre_ids
-                  )}</td>
+                  <td class="modal-table__info">${findGenresOfMovie(genre_ids)}</td>
                 </tr>
             </table>
-          <h3 class="modal-about">about</h3>
-          <p class="modal-about__text" id="aboutMovie">${overview}</p>
-    </div>`;
+            <h3 class="modal-about">about</h3>
+            <p class="modal-about__text" id="aboutMovie">${overview}</p>
+          </div>
+          
+            <div class="buttons">
+              <button type="button" name="" class="addInStorageWantWatch" data-addInStorageWatched id="${id}">
+                add to Watched
+              </button>
+              <button type="button" name="" class="addInStorageAlreadyWatched" data-addInStorageWantWatch id="${id}">
+                add to queue
+              </button>
+            </div>
+
+        </div>
+
+
+</div>`;
 
   // modalMarkup.innerHTML += markup;
 
