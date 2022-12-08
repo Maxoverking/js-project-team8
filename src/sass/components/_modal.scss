@@ -199,6 +199,8 @@
 
 
 .modal-about__text {
+    height: 100px;
+    overflow: scroll;
     text-align: left;
     font-weight: 500;
     line-height: 1.66;
