@@ -11,7 +11,6 @@ if (cardsListLibrary !== null) {
     movieGalleryFetch
     .getTrendingData(1)
     .then(response => {
-       console.log('даные которые пришли glider',response.data);
       gliderRenderFilms(response.data)
     })
     .catch(err => {
@@ -29,12 +28,9 @@ const glide = new Glide('.glide', {
 });
 glide.mount()
 function gliderRenderFilms(data) {
-
-   console.log("🚀  data в пдшвук", data);
    const markupGlider = data.map(obj => {
-        const { id, name, title, vote_average, backdrop_path
-       , original_title } = obj;
-     const rate = vote_average.toFixed(1).toString();
+    const { id, name, title, vote_average, backdrop_path, original_title } = obj;
+    const rate = vote_average.toFixed(1).toString();
         return ` <li class="glider-card" data-action='${id}'>
     <div class="gli-title-name">
       <p class="glider-original_title" data-id='${id}'>${original_title}</p>
