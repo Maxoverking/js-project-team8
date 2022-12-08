@@ -9,6 +9,7 @@ const cardsListLibrary = document.querySelector('.cards__list--library');
 const list = document.querySelector('.cards__list');
 const modal = document.querySelector('[data-modal]');
 const modalMarkup = document.querySelector('.modal__info');
+const backdrop = document.querySelector('.backdrop');
 
 const closeModalBtn = document.querySelector('[data-modal-close]');
 const poster = document.querySelector('.poster');
@@ -30,7 +31,8 @@ function toggleModal() {
   document.body.classList.toggle("modal-open");
   addInStorageWantWatch.id = filmClick.id;
   addInStorageWatched.id = filmClick.id;
-  window.removeEventListener("keydown", onEscapeClose)
+  window.removeEventListener("keydown", onEscapeClose);
+  backdrop.removeEventListener("click", onClickClose);
   // очищаем html модалки(кроме кнопок и кнопки закрытия)
   clearModarMarkup();
 
@@ -56,6 +58,7 @@ export function onClick(evt) {
   console.log(filmClick);
   createModaMarckup(filmClick);
   window.addEventListener("keydown", onEscapeClose);
+  backdrop.addEventListener("click", onClickClose);
 }
 
 // функция поиска данных фильма
@@ -163,6 +166,20 @@ function onEscapeClose(e) {
     addInStorageWantWatch.id = filmClick.id;
     addInStorageWatched.id = filmClick.id;
     clearModarMarkup();
-    window.removeEventListener("keydown", onEscapeClose)
+    window.removeEventListener("keydown", onEscapeClose);
+    backdrop.removeEventListener("click", onClickClose);
   }
+}
+
+function onClickClose(e) {
+  if (e.target.classList.value !== 'backdrop') {
+    return
+  }
+  modal.classList.toggle('is-hidden');
+  document.body.classList.toggle("modal-open");
+  addInStorageWantWatch.id = filmClick.id;
+  addInStorageWatched.id = filmClick.id;
+  clearModarMarkup();
+  window.removeEventListener("keydown", onEscapeClose);
+  backdrop.removeEventListener("click", onClickClose);
 }
