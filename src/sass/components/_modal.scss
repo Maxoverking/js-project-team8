@@ -30,16 +30,6 @@
 }
 
 .modal {
-padding: 20px;
-
-    @media screen and (min-width: 768px) {
-        padding: 32px;
-    }
-
-    @media screen and (min-width: 1200px) {
-        padding: 40px;
-    }
-
 
     width: 100%;
     max-width: 280px;
@@ -87,6 +77,7 @@ padding: 20px;
 .modal-container {
     display: flex;
     flex-direction: column;
+    
     
 
         @media (min-width: 768px) {
