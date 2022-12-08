@@ -30,7 +30,9 @@ function closeModal(evt) {
     window.removeEventListener('click', closeModal);
     teamContainer.innerHTML = '';
     document.body.style.overflow = '';
-    document.querySelector('.scroll__top').style.display = 'block';
+    if (document.querySelector('.scroll__top')) {
+      document.querySelector('.scroll__top').style.display = 'block';
+    }
   }
 }
 
@@ -158,5 +160,7 @@ function createTeamCardMarkup() {
                         </li>`;
   teamContainer.innerHTML = markupTeamFooter;
   document.body.style.overflow = 'hidden';
-  document.querySelector('.scroll__top').style.display = 'none';
+  if (document.querySelector('.scroll__top')) {
+    document.querySelector('.scroll__top').style.display = 'none';
+  }
 }
