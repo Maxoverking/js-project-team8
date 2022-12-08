@@ -91,41 +91,26 @@ function createModaMarckup(obj) {
         </div>
         <div class="film-info">
           <h2 class="modal__title" id="modalTitle">${title}</h2>
-          <div class="modal-data">
-            <table class="modal-data-table">
-              <tbody>
-                <tr>
-                  <td class="modal__characteristic-rating"><span class="modal__characteristic-rating--text">Vote /
-                      Votes</span> </td>
-                  <td class="modal__characteristic-rating"> <span class="modal__characteristic-inform--accent"
-                      id="averageRating">${rate}</span> /
-                    <span class="modal__characteristic-inform" id="rating">${vote_count}</span>
-                  </td>
+            <table class="modal-table">
+                <tr class="modal-table__row">
+                  <td class="modal-table__title">Vote/Votes</td>
+                  <td class="backslash row"> <span class="rate">${rate}</span> / <span class="vote-count">${vote_count}</span></td>
                 </tr>
-                <tr>
-                  <td class="modal__characteristic-popularity"><span
-                      class="modal__characteristic-popularity--text">Popularity</span></td>
-                  <td class="modal__characteristic-popularity"> <span class="modal__characteristic-inform"
-                      id="popularity">${popularity}</span> </td>
+                <tr class="modal-table__row">
+                  <td class="modal-table__title">Popularity</td>
+                  <td class="modal-table__info">${popularity}</td>
                 </tr>
-                <tr>
-                  <td class="modal__characteristic-title"><span class="modal__characteristic-title--text">Original
-                      Title</span></td>
-                  <td class="modal__characteristic-title"> <span class="block-style modal__characteristic-inform"
-                      id="title">${title}</span>
-                  </td>
+                <tr class="modal-table__row">
+                  <td class="modal-table__title">Original Title</td>
+                  <td class="modal-table__info uppercase">${title}</td>
                 </tr>
-                <tr>
-                  <td class="modal__characteristic-genre"><span class="modal__characteristic-genre--text">Genre</span>
-                  </td>
-                  <td class="modal__characteristic-genre">${findGenresOfMovie(genre_ids)} <span class="block-style modal__characteristic-inform"
-                      id="genre"></span> </td>
+                <tr class="modal-table__row">
+                  <td class="modal-table__title">Genre</td>
+                  <td class="modal-table__info">${findGenresOfMovie(genre_ids)}</td>
                 </tr>
-              </tbody>
             </table>
-          </div>
-          <h3 class="modal__about">ABOUT</h3>
-          <p class="modal__about-text" id="aboutMovie">${overview}</p>
+          <h3 class="modal-about">about</h3>
+          <p class="modal-about__text" id="aboutMovie">${overview}</p>
     </div>`;
 
   // modalMarkup.innerHTML += markup;
