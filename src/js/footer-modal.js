@@ -8,6 +8,7 @@ import romanUrl from '../images/team-pictures/roman.webp'
 import romaUrl from '../images/team-pictures/roma.webp'
 import SerChistyakovUrl from '../images/team-pictures/SerChistyakov.webp'
 import ivanKUrl from '../images/team-pictures/ivanK.webp'
+import svgGit from '../images/sprite.svg';
 
 const openFtrModalBtn = document.querySelector('[data-modal-btn]');
 const ftrModalContainer = document.querySelector('.footer-modal');
@@ -36,7 +37,7 @@ function createTeamCardMarkup() {
                             <img  class="round" src="${maksymUrl}" alt="Averkin Maksym" >
                             <a class="github" href="https://github.com/Maxoverking" aria-label="github">
                             <svg width="26" height="20"; >
-                                <use href="/src/images/sprite.svg#icon-github"></use>
+                                <use href="${svgGit}#icon-github"></use>
                             </svg>
                           </a>
                           <div class="team-title">
@@ -49,7 +50,7 @@ function createTeamCardMarkup() {
                             <img  class="round" src="${sergeyUrl}" alt="Scrum Sergey Yurtin">
                             <a class="github" href="https://github.com/SergY29" aria-label="github">
                             <svg width="26" height="20"; >
-                                <use href="/src/images/sprite.svg#icon-github"></use>
+                                <use href="${svgGit}#icon-github"></use>
                             </svg>
                           </a>
                             <div class="team-title">
@@ -61,7 +62,7 @@ function createTeamCardMarkup() {
                             <img  class="round" src="${ivanKUrl}" alt="Koshel Ivan" >
                             <a class="github" href="https://github.com/Ivan-GoIT" aria-label="github">
                             <svg width="26" height="20"; >
-                                <use href="/src/images/sprite.svg#icon-github"></use>
+                                <use href="${svgGit}#icon-github"></use>
                             </svg>
                           </a>
                             <div class="team-title">
@@ -73,7 +74,7 @@ function createTeamCardMarkup() {
                             <img  class="round" src="${tatianaUrl}" alt="Tetiana Vielkova" >
                             <a class="github" href="https://github.com/TetianaVielkova" aria-label="github">
                             <svg width="26" height="20"; >
-                                <use href="/src/images/sprite.svg#icon-github"></use>
+                                <use href="${svgGit}#icon-github"></use>
                             </svg>
                           </a>
                             <div class="team-title">
@@ -85,7 +86,7 @@ function createTeamCardMarkup() {
                             <img  class="round" src="${vanyaUrl}" alt="IvanBogachov" >
                             <a class="github" href="https://github.com/IvanBogachov" aria-label="github">
                             <svg width="26" height="20"; >
-                                <use href="/src/images/sprite.svg#icon-github"></use>
+                                <use href="${svgGit}#icon-github"></use>
                             </svg>
                           </a>
                             <div class="team-title">
@@ -97,7 +98,7 @@ function createTeamCardMarkup() {
                             <img  class="round" src="${evgenyUrl}" alt="Malobrodsky Evgeni" >
                             <a class="github" href="https://github.com/leroyiq" aria-label="github">
                             <svg width="26" height="20"; >
-                                <use href="/src/images/sprite.svg#icon-github"></use>
+                                <use href="${svgGit}#icon-github"></use>
                             </svg>
                           </a>
                             <div class="team-title">
@@ -109,7 +110,7 @@ function createTeamCardMarkup() {
                             <img  class="round" src="${romanUrl}" alt="Roman Denisenko" >
                             <a class="github" href="https://github.com/Romannorish" aria-label="github">
                             <svg width="26" height="20"; >
-                                <use href="/src/images/sprite.svg#icon-github"></use>
+                                <use href="${svgGit}#icon-github"></use>
                             </svg>
                           </a>
                             <div class="team-title">
@@ -121,7 +122,7 @@ function createTeamCardMarkup() {
                             <img  class="round" src="${romaUrl}" alt="Andrey Serdyukov" >
                             <a class="github" href="https://github.com/s1avyan" aria-label="github">
                             <svg width="26" height="20"; >
-                                <use href="/src/images/sprite.svg#icon-github"></use>
+                                <use href="${svgGit}#icon-github"></use>
                             </svg>
                           </a>
                             <div class="team-title">
@@ -133,7 +134,7 @@ function createTeamCardMarkup() {
                             <img  class="round" src="${SerChistyakovUrl}" alt="Sergey Chistyakov" >
                             <a class="github" href="https://github.com/Sergey3355" aria-label="github">
                             <svg width="26" height="20"; >
-                                <use href="/src/images/sprite.svg#icon-github"></use>
+                                <use href="${svgGit}#icon-github"></use>
                             </svg>
                           </a>
                            <div class="team-title">
@@ -145,7 +146,7 @@ function createTeamCardMarkup() {
                             <img  class="round" src="${SerChistyakovUrl}" alt="Ivan Sytnik" >
                             <a class="github" href="https://github.com/IvanSytnik" aria-label="github">
                             <svg width="26" height="20"; >
-                                <use href="/src/images/sprite.svg#icon-github"></use>
+                                <use href="${svgGit}#icon-github"></use>
                             </svg>
                           </a>
                             <div class="team-title">
