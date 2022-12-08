@@ -1,0 +1,53 @@
+@import 'node_modules/@glidejs/glide/src/assets/sass/glide.core';
+@import 'node_modules/@glidejs/glide/src/assets/sass/glide.theme';
+.glider-wrapper {
+  background-color: rgb(11, 2, 2);
+  font-size: 14px;
+  margin-top:18px;
+  padding-bottom: 20px;
+  box-shadow: 0px 8px 12px 0px rgba(0,0,0,1),
+  0px -8px 12px 5px rgba(4,4,4,1);
+  @media screen and (max-width: 1023px) {
+    display: none;
+  }
+}
+.glider-card {
+  margin-right: 8px;
+}
+.gli-title-name{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.thumb{
+    width: 320px;
+    height: 200px;
+    text-align: center;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    
+}
+.glider-title {
+letter-spacing: 4px;
+  text-align: center;
+  color: var(--darkColor);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  line-height: 2;
+  font-size: 38px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+    text-shadow: -1px 0px 14px #CE5937, -1px 0px 14px #28110B;
+}
+
+.glider-image {
+  border-radius: 10px;
+}
+
+.glider-original_title{
+    font-size: 16px;
+    font-family: inherit;
+    color: rgb(214, 111, 27);
+    
+}

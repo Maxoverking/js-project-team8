@@ -11,6 +11,7 @@ import './js/footer-modal.js';
 import './js/functionSearch.js';
 import './js/scroll-top.js';
 import './js/loader.js';
+import './js/glider.js';
 
 //Это пример его раскоментить посмотреть что приходит
 
