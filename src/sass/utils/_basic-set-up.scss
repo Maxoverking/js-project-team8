@@ -66,4 +66,26 @@ a{
 }
 
 
+//стили для изменения цвета полосы прокрутки (скролл бара)
+::-webkit-scrollbar {
+  width: 15px;
+  padding: 2px;
+  }
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--activeColor);
+  border-radius: 15px;
+  border: white 1px solid;
+}
+//Изменить стиль выделения текста
 
+::selection {
+  background: var(--activeColor); /* WebKit/Blink Browsers */
+  color: white;
+
+}
+::-moz-selection {
+  background:var(--activeColor); /* Gecko Browsers */
+}
