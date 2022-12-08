@@ -1,9 +1,8 @@
 import allGenres from './genres.json';
 import FetchData from './FetchData.js';
 import pagination from './pagination';
-const cardsListLibrary = document.querySelector('.cards__list--library');
 
-console.log("🚀  cardsListLibrary", cardsListLibrary);
+const cardsListLibrary = document.querySelector('.cards__list--library');
 const cardsList = document.querySelector('.cards__list');
 
 const movieGalleryFetch = new FetchData();
@@ -14,7 +13,7 @@ if (cardsListLibrary !== null) {
     movieGalleryFetch
     .getTrendingData(1)
     .then(response => {
-       console.log('даные которые пришли',response.data);
+        console.log('даные которые пришли', response.data);
         createCard(response.data)
         pagination(response);
     })
@@ -86,4 +85,3 @@ export function findGenresOfMovie(ids) {
     }
     return movieGenres.join(', ');
 }
-
