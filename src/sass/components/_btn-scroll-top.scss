@@ -1,16 +1,18 @@
 .scroll__top {
     position: fixed;
     bottom: 120px;
-    right: 60px;
+    right: 30px;
     z-index: 999;
     opacity: 0;
     transition: opacity 500ms linear;
+    @media screen and (min-width: 768px) {
+        right: 60px;
+    }
 }
-
 
 .scroll__top--icon {
     display: block;
-    fill: var(--white);
+    fill: none;
     stroke: var(--activeColor);
     
 }

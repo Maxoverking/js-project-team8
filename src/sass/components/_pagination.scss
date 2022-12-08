@@ -1,13 +1,15 @@
 #pagination-list {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .pagination{
     padding-bottom: 60px;
 }
 .pagination-list__button.current{
-    background-color: orange;
+    background-color: var(--activeColor);
 
 }
 .pagination-list__item {
@@ -25,7 +27,7 @@
   &:hover,
   &:focus,
   &:active {
-    background-color: orange;
+    background-color: var(--activeColor);
   }
 }
 [data-left_one_page],
