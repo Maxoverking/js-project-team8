@@ -83,16 +83,13 @@ function searchId(id) {
 function createModaMarckup(obj) {
   const { poster_path, title, vote_average, vote_count, popularity, genre_ids, overview } = obj;
   const rate = vote_average.toFixed(1).toString();
-  const markup = `<ul class="modal_position">
-  <li class="modal_position__flex">
+  const markup = `<div class="modal-container">
         <div class="modal-poster">
           <img
             src="${poster_path}"
             class="poster" alt="poster" id="poster">
         </div>
-      </li>
-      <li class="modal_position__flex">
-        <div class="modal-info">
+        <div class="film-info">
           <h2 class="modal__title" id="modalTitle">${title}</h2>
           <div class="modal-data">
             <table class="modal-data-table">
@@ -129,8 +126,7 @@ function createModaMarckup(obj) {
           </div>
           <h3 class="modal__about">ABOUT</h3>
           <p class="modal__about-text" id="aboutMovie">${overview}</p>
-        </li>
-    </ul>`;
+    </div>`;
 
   // modalMarkup.innerHTML += markup;
 

@@ -24,15 +24,25 @@
 }
 }
 
-
 .backdrop.is-hidden .modal {
     transform: scale(0.5);;
 }
 
-
-
-
 .modal {
+    overflow: auto;
+    background: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0px 1px 3px rgba (0 0 0, 0.12),
+    0px 1px 1px rgba (0 0 0, 0.14),
+    0px 2px 1px rgba (0 0 0, 0, 2);
+    transition: 250ms;
+    padding-top: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 40px;
     
     @media screen and (min-width: 1280px) {
         width: 806px;
@@ -48,18 +58,7 @@
         justify-content: center;
     }
 
-    overflow: auto;
-    background: #ffffff;
-    border-radius: 4px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1);
-    box-shadow: 0px 1px 3px rgba (0 0 0, 0.12),
-    0px 1px 1px rgba (0 0 0, 0.14),
-    0px 2px 1px rgba (0 0 0, 0, 2);
-    transition: 250ms;
-    padding: 40px;
+
 }
 
 .is-hidden {
@@ -68,7 +67,7 @@
     visibility: hidden;
 }
 
-.modal_position {
+.modal-container {
     display: flex;
 
     @media screen and (max-width: 767.98px) {
@@ -76,7 +75,7 @@
     }
 }
 
-// @media screen and (min-width: 768px) and (max-width: 1279.98px)
+
 
 .modal_position__flex+.modal_position__flex {
     @media screen and (min-width: 1280px) {
@@ -93,43 +92,28 @@
 }
 
 .poster {
-    object-fit: cover;
-    object-position: top;
+    // object-fit: cover;
+    // object-position: top;
     border-radius: 5px;
     display: block;
+    max-width: 240px;
 
-    @media screen and (min-width: 1280px) {
-        width: 375px;
-    }
 
-    @media screen and (min-width: 768px) and (max-width: 1279.98px) {
-        width: 264px;
-    }
+    @media (min-width: 768px) {
 
-    @media screen and (max-width: 767.98px) {
-        width: 240px;
-    }
+            max-width: 264px;
+        }
+    
+    
+        @media (min-width: 1280px) {
+            max-width: 375px;
+        }
+
 }
 
-.modal-poster__placeholder-thumb {
-    width: 100%;
-    height: 100%;
-    background: unset;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
 
-.modal-poster__placeholder-thumb {
-    width: 100%;
-    height: 100%;
-    background: unset;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
 
-.modal-info {
+.film-info {
     // max-width: 364px;
     flex-direction: column;
     display: flex;
