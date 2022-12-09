@@ -48,7 +48,6 @@ if (cardsListLibrary === null) {
 export function onClick(evt) {
   filmClick = {};
   const id = evt.path[1].parentElement.id;
-  console.log(id);
   searchId(id);
 
   if (Object.keys(filmClick).length === 0) {
