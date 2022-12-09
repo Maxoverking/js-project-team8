@@ -195,8 +195,8 @@ function onClickClose(e) {
   }
   modal.classList.toggle('is-hidden');
   document.body.classList.toggle('modal-open');
-  addInStorageWantWatch.id = filmClick.id;
-  addInStorageWatched.id = filmClick.id;
+  // addInStorageWantWatch.id = filmClick.id;
+  // addInStorageWatched.id = filmClick.id;
   clearModarMarkup();
   window.removeEventListener('keydown', onEscapeClose);
   backdrop.removeEventListener('click', onClickClose);
