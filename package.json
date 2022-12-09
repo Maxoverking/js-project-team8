@@ -18,8 +18,8 @@
     "url": "https://github.com/goitacademy/parcel-project-template/issues"
   },
 
-  
   "dependencies": {
+
     "@glidejs/glide": "^3.6.0",
     "axios": "^1.2.0",
     "handlebars": "^4.7.7",
