@@ -41,6 +41,7 @@ if (cardsListLibrary === null) {
 // location.pathname === '/library.html'
 // передача данных
 export function onClick(evt) {
+
   filmClick = {};
   const id = evt.path[1].parentElement.id;
   searchId(id);
@@ -168,6 +169,10 @@ function onEscapeClose(e) {
   if (e.code === 'Escape') {
     modal.classList.toggle('is-hidden');
     document.body.classList.toggle('modal-open');
+
+    // addInStorageWantWatch.id = filmClick.id;
+    // addInStorageWatched.id = filmClick.id;
+
     clearModarMarkup();
     refreshLibrary();
     window.removeEventListener('keydown', onEscapeClose);
