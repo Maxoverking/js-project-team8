@@ -40,12 +40,12 @@ const paginationMarkup = (arr = [], page = 1) => {
 };
 
 const getArrPageNumbersForView = (currentPage, totalPages) => {
-  let buttonsQuantity = totalPages < 9 ? totalPages : 9;
+  const buttonsQuantity = totalPages < 9 ? totalPages : 9;
   const ArrPageNumbersForView = [];
 
   // добавил window innerWidth
   if (window.innerWidth < 768) {
-    buttonsQuantity = 5;
+    let buttonsQuantity = 5;
   }
 
   let start = currentPage - Math.floor(buttonsQuantity / 2);
