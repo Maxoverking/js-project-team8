@@ -1,4 +1,5 @@
 import createCardLibrary from './filmCardsLibrary.js';
+import { paginationLibrary } from './pagination-library.js';
 
 const refs = {
   body: document.querySelector('body'),
@@ -146,6 +147,7 @@ function addInLibraryWatched() {
   let filmListWatched =
     JSON.parse(localStorage.getItem('filmListWatched')) || [];
   createCardLibrary(filmListWatched);
+  paginationLibrary(filmListWatched);
 }
 // рендер фильмов в библиотеке "queue"
 function addInLibraryQueue() {

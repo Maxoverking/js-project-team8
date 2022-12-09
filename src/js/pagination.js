@@ -1,5 +1,5 @@
 import FetchData from './FetchData';
-import createCard from './filmCards-home';
+import {createCard,insertMarkup,cardsList} from './filmCards-home';
 import svgArrows from '../images/sprite.svg';
 
 const movieGalleryFetch = new FetchData();
@@ -36,7 +36,8 @@ const paginationMarkup = (arr = [], page = 1) => {
 };
 
 const getArrPageNumbersForView = (currentPage, totalPages) => {
-  let buttonsQuantity = 9;
+  const buttonsQuantity = totalPages < 9 ? totalPages : 9;
+
   const ArrPageNumbersForView = [];
 
   // добавил window innerWidth
@@ -78,9 +79,9 @@ const getArrPageNumbersForView = (currentPage, totalPages) => {
   return ArrPageNumbersForView;
 };
 
-const markupUpdate = obj => {
-  createCard(obj.data);
-  pagination(obj);
+const markupUpdate = (obj,htmlEl) => {
+  insertMarkup(createCard(obj.data), htmlEl);
+    pagination(obj);
 };
 
 const fetchPage = async (page = 1, search = '') => {
@@ -115,11 +116,11 @@ const onPaginationItemClick = async evt => {
   if (evt.target.closest('.arrow')) pageNum = onArrowClick(evt, currentPage);
 
   const data = await fetchPage(pageNum, search);
-  markupUpdate(data);
+  markupUpdate(data, cardsList);
   window.scrollTo(0, 0);
 };
 
-export default function pagination(fetchObj) {
+ function pagination(fetchObj) {
   const paginationEl = document.querySelector('#pagination-list');
 
   paginationEl.innerHTML = paginationMarkup(
@@ -143,3 +144,13 @@ export default function pagination(fetchObj) {
     true
   );
 }
+
+export {
+  pagination,
+  onPaginationItemClick,
+  paginationMarkup,
+  onArrowClick,
+  fetchPage,
+  markupUpdate,
+  getArrPageNumbersForView,
+};
