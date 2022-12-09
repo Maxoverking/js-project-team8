@@ -1,6 +1,7 @@
 import FetchData from './FetchData';
 import {createCard,insertMarkup,cardsList} from './filmCards-home';
 import svgArrows from '../images/sprite.svg';
+import {addRemDataToLocalstorage} from './filmCards-home.js'
 
 const movieGalleryFetch = new FetchData();
 
@@ -118,6 +119,7 @@ const onPaginationItemClick = async evt => {
   if (evt.target.closest('.arrow')) pageNum = onArrowClick(evt, currentPage,total_pages);
 
   const data = await fetchPage(pageNum, search);
+  addRemDataToLocalstorage(data.data)
   markupUpdate(data, cardsList);
   window.scrollTo(0, 0);
 };
@@ -136,7 +138,6 @@ const onPaginationItemClick = async evt => {
   // добавил window
   window.addEventListener(
     'resize',
-
     function (event) {
       paginationEl.innerHTML = paginationMarkup(
         getArrPageNumbersForView(fetchObj.page, fetchObj.total_pages),

@@ -62,9 +62,6 @@ export function onClick(evt) {
     window.addEventListener('keydown', onEscapeClose);
     backdrop.addEventListener('click', onClickClose);
   }
-
-
-
 }
 
 // функция поиска данных фильма

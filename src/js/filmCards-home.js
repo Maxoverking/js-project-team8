@@ -52,8 +52,7 @@ function insertMarkup(htmlMarkup, htmlEl) {
 }
 
 //удаления и сохранения локал сторедж
-function addRemDataToLocalstorage(data) {
-  localStorage.removeItem('allFilmOnPage');
+export function addRemDataToLocalstorage(data) {
   let allFilms = JSON.stringify(data);
   localStorage.setItem('allFilmOnPage', allFilms);
 }
