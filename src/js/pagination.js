@@ -1,5 +1,5 @@
 import FetchData from './FetchData';
-import createCard from './filmCards-home';
+import {createCard,insertMarkup,cardsList} from './filmCards-home';
 import svgArrows from '../images/sprite.svg';
 
 const movieGalleryFetch = new FetchData();
@@ -8,6 +8,9 @@ let search = null;
 let total_pages = null;
 
 const paginationMarkup = (arr = [], page = 1) => {
+  if (arr.length<=1) {
+    return''
+  }
   const currentPage = (arrItem, page) => (arrItem === page ? 'current' : '');
 
   return [
@@ -36,7 +39,7 @@ const paginationMarkup = (arr = [], page = 1) => {
 };
 
 const getArrPageNumbersForView = (currentPage, totalPages) => {
-  let buttonsQuantity = 9;
+  const buttonsQuantity = totalPages < 9 ? totalPages : 9;
   const ArrPageNumbersForView = [];
 
   // добавил window innerWidth
@@ -78,9 +81,9 @@ const getArrPageNumbersForView = (currentPage, totalPages) => {
   return ArrPageNumbersForView;
 };
 
-const markupUpdate = obj => {
-  createCard(obj.data);
-  pagination(obj);
+const markupUpdate = (obj,htmlEl) => {
+  insertMarkup(createCard(obj.data), htmlEl);
+    pagination(obj);
 };
 
 const fetchPage = async (page = 1, search = '') => {
@@ -93,7 +96,7 @@ const fetchPage = async (page = 1, search = '') => {
   return result;
 };
 
-const onArrowClick = (evt, currentPage) => {
+const onArrowClick = (evt, currentPage,total_pages) => {
   const arrowEl = evt.target.closest('.arrow');
   if (arrowEl.hasAttribute('data-left_one_page')) {
     const prevPage = currentPage - 1;
@@ -112,14 +115,14 @@ const onPaginationItemClick = async evt => {
   const paginButtonContent = evt.target.textContent;
   if (!(pageNum = parseInt(paginButtonContent))) pageNum = 1;
   if (paginButtonContent === '...') return;
-  if (evt.target.closest('.arrow')) pageNum = onArrowClick(evt, currentPage);
+  if (evt.target.closest('.arrow')) pageNum = onArrowClick(evt, currentPage,total_pages);
 
   const data = await fetchPage(pageNum, search);
-  markupUpdate(data);
+  markupUpdate(data, cardsList);
   window.scrollTo(0, 0);
 };
 
-export default function pagination(fetchObj) {
+ function pagination(fetchObj) {
   const paginationEl = document.querySelector('#pagination-list');
 
   paginationEl.innerHTML = paginationMarkup(
@@ -143,3 +146,13 @@ export default function pagination(fetchObj) {
     true
   );
 }
+
+export {
+  pagination,
+  onPaginationItemClick,
+  paginationMarkup,
+  onArrowClick,
+  fetchPage,
+  markupUpdate,
+  getArrPageNumbersForView,
+};
