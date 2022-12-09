@@ -163,7 +163,6 @@ function addInLibraryQueue() {
 }
 // проверка филма в библиотек при открытии модального окна
 export function onOpenModal(id) {
-
   // const addInStorageWantWatch = document.querySelector(
   //   '[data-addInStorageWantWatch]'
   // );
@@ -215,4 +214,23 @@ function deleteFromLibrary(library, id, libraryName, selectorName, buttonName) {
 // начальный рендер библиотеки
 if (refs.body.querySelector('[data-render-watched]')) {
   addInLibraryWatched();
+}
+// обновление рендера библиотеки после закрытия модалки
+export function refreshLibrary() {
+  if (refs.body.querySelector('[data-render-watched]')) {
+    if (
+      refs.body
+        .querySelector('[data-render-watched]')
+        .classList.contains('action-library')
+    ) {
+      addInLibraryWatched();
+    }
+    if (
+      refs.body
+        .querySelector('[data-render-queue]')
+        .classList.contains('action-library')
+    ) {
+      addInLibraryQueue();
+    }
+  }
 }

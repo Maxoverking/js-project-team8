@@ -1,9 +1,7 @@
-import { onOpenModal } from './headerLibrary';
+import { onOpenModal, refreshLibrary } from './headerLibrary';
 import allGenres from './genres.json';
 
 const cardsListLibrary = document.querySelector('.cards__list--library');
-
-
 
 const list = document.querySelector('.cards__list');
 const modal = document.querySelector('[data-modal]');
@@ -12,12 +10,7 @@ const backdrop = document.querySelector('.backdrop');
 
 const closeModalBtn = document.querySelector('[data-modal-close]');
 const poster = document.querySelector('.poster');
-// const addInStorageWantWatch = document.querySelector(
-//   '[data-addInStorageWantWatch]'
-// );
-// const addInStorageWatched = document.querySelector(
-//   '[data-addInStorageWatched]'
-// );
+
 //данные фильма открытого в модалки
 let filmClick = {};
 
@@ -28,12 +21,13 @@ closeModalBtn.addEventListener('click', toggleModal);
 function toggleModal() {
   modal.classList.toggle('is-hidden');
   document.body.classList.toggle('modal-open');
+
+  refreshLibrary();
+
   window.removeEventListener('keydown', onEscapeClose);
   backdrop.removeEventListener('click', onClickClose);
   // очищаем html модалки(кроме кнопок и кнопки закрытия)
   clearModarMarkup();
-
-
 }
 
 // console.log("🚀  location.pathname", location.pathname);
@@ -53,20 +47,16 @@ export function onClick(evt) {
   searchId(id);
 
   if (Object.keys(filmClick).length === 0) {
-    return
+    return;
   } else {
     toggleModal();
     // рисуем разметку модалки при открытии
-
 
     createModaMarckup(filmClick);
     onOpenModal(filmClick.id);
     window.addEventListener('keydown', onEscapeClose);
     backdrop.addEventListener('click', onClickClose);
   }
-
-
-
 }
 
 // функция поиска данных фильма
@@ -127,7 +117,9 @@ function createModaMarckup(obj) {
                 </tr>
                 <tr class="modal-table__row">
                   <td class="modal-table__title">Genre</td>
-                  <td class="modal-table__info">${findGenresOfMovie(genre_ids)}</td>
+                  <td class="modal-table__info">${findGenresOfMovie(
+                    genre_ids
+                  )}</td>
                 </tr>
             </table>
             <h3 class="modal-about">about</h3>
@@ -151,16 +143,10 @@ function createModaMarckup(obj) {
   // modalMarkup.innerHTML += markup;
 
   modalMarkup.insertAdjacentHTML('afterbegin', markup);
-
-
 }
-
-
-
 
 function clearModarMarkup() {
   modalMarkup.innerHTML = '';
-
 }
 
 const { genres } = allGenres;
@@ -183,9 +169,12 @@ function onEscapeClose(e) {
   if (e.code === 'Escape') {
     modal.classList.toggle('is-hidden');
     document.body.classList.toggle('modal-open');
+
     // addInStorageWantWatch.id = filmClick.id;
     // addInStorageWatched.id = filmClick.id;
+
     clearModarMarkup();
+    refreshLibrary();
     window.removeEventListener('keydown', onEscapeClose);
     backdrop.removeEventListener('click', onClickClose);
   }
@@ -200,6 +189,7 @@ function onClickClose(e) {
   // addInStorageWantWatch.id = filmClick.id;
   // addInStorageWatched.id = filmClick.id;
   clearModarMarkup();
+  refreshLibrary();
   window.removeEventListener('keydown', onEscapeClose);
   backdrop.removeEventListener('click', onClickClose);
 }
