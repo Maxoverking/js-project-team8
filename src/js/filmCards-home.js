@@ -55,44 +55,44 @@ function insertMarkup(htmlMarkup, htmlEl) {
 
 //удаления и сохранения локал сторедж
 
- function addRemDataToLocalstorage(data) {
+function addRemDataToLocalstorage(data) {
   localStorage.setItem('allFilmOnPage', JSON.stringify(data));
 
-//Функция для отображения года выпуска
-function createYear(data) {
-  if (data) {
-    return data.slice(0, 4);
-  } else {
-    return (data = 'Not found');
-  }
-}
-
-//Функция которая обрезает название
-function getShortName(string) {
-  if (string) {
-    if (string.length >= 32) {
-      return string.substr(0, 32) + '...';
+  //Функция для отображения года выпуска
+  function createYear(data) {
+    if (data) {
+      return data.slice(0, 4);
+    } else {
+      return (data = 'Not found');
     }
-    return string;
+  }
+
+  //Функция которая обрезает название
+  function getShortName(string) {
+    if (string) {
+      if (string.length >= 32) {
+        return string.substr(0, 32) + '...';
+      }
+      return string;
+    }
+  }
+
+  //Функция которая отвечает за жанр
+  const { genres } = allGenres;
+  function findGenresOfMovie(ids) {
+    const arr = ids.flatMap(id => genres.filter(element => element.id === id));
+    let movieGenres = arr.map(el => el.name);
+    if (movieGenres.length > 2) {
+      const removedGenres = movieGenres.splice(0, 2);
+      removedGenres.push('Other');
+
+      return removedGenres.join(', ');
+    }
+    if (movieGenres.length === 0) {
+      return (movieGenres = 'Not found');
+    }
+    return movieGenres.join(', ');
   }
 }
-
-//Функция которая отвечает за жанр
-const { genres } = allGenres;
- function findGenresOfMovie(ids) {
-  const arr = ids.flatMap(id => genres.filter(element => element.id === id));
-  let movieGenres = arr.map(el => el.name);
-  if (movieGenres.length > 2) {
-    const removedGenres = movieGenres.splice(0, 2);
-    removedGenres.push('Other');
-
-    return removedGenres.join(', ');
-  }
-  if (movieGenres.length === 0) {
-    return (movieGenres = 'Not found');
-  }
-  return movieGenres.join(', ');
-}
-
 export { createCard, insertMarkup,findGenresOfMovie,addRemDataToLocalstorage, cardsList, cardsListLibrary };
 
