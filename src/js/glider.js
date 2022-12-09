@@ -22,7 +22,7 @@ const glide = new Glide('.glide', {
   type: 'slider',
   startAt: 0,
   perView: 5,
-  autoplay: 3000,
+  autoplay: 4000,
   hoverpause: true,
   bound: true,
 });

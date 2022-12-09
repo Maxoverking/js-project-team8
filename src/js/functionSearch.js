@@ -24,7 +24,7 @@ form.addEventListener('submit', e => {
   movieGalleryFetch
     .getSearchData(word)
     .then(response => {
-      console.log('даные которые пришли в search', response);
+      // console.log('даные которые пришли в search', response);
       if (response.data.length == 0) {
         message.classList.add('visible');
         Notiflix.Loading.remove(500);

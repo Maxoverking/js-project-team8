@@ -23,7 +23,6 @@ const fetchPage = pageNum => {
     (pageNum - 1) * cardsOnPageQuantity,
     pageNum * cardsOnPageQuantity
   );
-
   return {
     ...fetchObj,
     data,
@@ -31,10 +30,7 @@ const fetchPage = pageNum => {
 };
 
 const markupUpdate = obj => {
-  console.log('markupUpdate');
-  console.log(obj.data);
   createCardLibrary(obj.data);
-
   paginationLibrary(fetchObj);
 };
 
@@ -60,15 +56,11 @@ function paginationLibrary(fetchData) {
     fetchObj = dataNormalize(fetchData);
   }
   total_pages = fetchObj.total_pages;
-
   const paginationEl = document.querySelector('#pagination-list');
 
   paginationEl.innerHTML = paginationMarkup(
     getArrPageNumbersForView(fetchObj.page, fetchObj.total_pages),
-    fetchObj.page
-  );
-
+    fetchObj.page);
   paginationEl.addEventListener('click', onPaginationItemClick);
 }
-
 export { paginationLibrary };
