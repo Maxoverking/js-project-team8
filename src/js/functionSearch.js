@@ -1,6 +1,10 @@
 import Notiflix from 'notiflix';
 import FetchData from './FetchData.js';
-import {createCard} from './filmCards-home.js';
+import {
+  createCard,
+  insertMarkup,
+  addRemDataToLocalstorage,
+} from './filmCards-home.js';
 import {pagination} from './pagination.js';
 
 const cardsList = document.querySelector('.cards__list');
@@ -20,15 +24,14 @@ form.addEventListener('submit', e => {
   movieGalleryFetch
     .getSearchData(word)
     .then(response => {
-      console.log('даные которые пришли', response.data);
       console.log('даные которые пришли в search', response);
       if (response.data.length == 0) {
         message.classList.add('visible');
         Notiflix.Loading.remove(500);
         setTimeout(() => message.classList.remove('visible'), 4000);
       } else {
-        cardsList.innerHTML = '';
-        createCard(response.data);
+              insertMarkup(createCard(response.data), cardsList);
+              addRemDataToLocalstorage(response.data);
         Notiflix.Loading.remove(500);
         pagination(response);
       }
