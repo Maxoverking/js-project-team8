@@ -49,6 +49,7 @@ function createCard(data) {
 //вставка разметки
 function insertMarkup(htmlMarkup, htmlEl) {
   htmlEl.innerHTML = htmlMarkup;
+  
 }
 
 //удаления и сохранения локал сторедж
