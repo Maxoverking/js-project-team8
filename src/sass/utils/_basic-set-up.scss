@@ -2,9 +2,17 @@ html {
   scroll-behavior: smooth;
 }
 body{
-    margin: 0;
-    font-family: var(--primary-font-family), Verdana, Tahoma, arial, sans-serif;;
-    font-weight: 500;
+  margin: 0;
+  font-family: var(--primary-font-family), Verdana, Tahoma, arial, sans-serif;;
+  font-weight: 500;
+}
+.dowm-page{
+ display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+section {
+  flex-grow: 1;
 }
 
 body.modal-open {
@@ -66,4 +74,26 @@ a{
 }
 
 
+//стили для изменения цвета полосы прокрутки (скролл бара)
+::-webkit-scrollbar {
+  width: 15px;
+  padding: 2px;
+  }
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--activeColor);
+  border-radius: 15px;
+  border: white 1px solid;
+}
+//Изменить стиль выделения текста
 
+::selection {
+  background: var(--activeColor); /* WebKit/Blink Browsers */
+  color: white;
+
+}
+::-moz-selection {
+  background:var(--activeColor); /* Gecko Browsers */
+}

@@ -1,6 +1,7 @@
 .header {
   position: relative;
   overflow: hidden;
+  width: 100%;
   height: 230px;
   max-width: 1600px;
   margin: 0 auto;
@@ -40,10 +41,6 @@
       background-image: url('/src/images/bg-images/bg-desktop@x2.jpg');
     }
   }
-}
-
-.svg-film {
-  // fill: var(--activeColor);
 }
 
 .site-nav {
@@ -224,7 +221,6 @@
   animation: snowFall 3s linear infinite;
 }
 
-
 @keyframes snowFall {
   0% {
     transform: translateY(0);
@@ -243,4 +239,7 @@
     transform: translateY(2000%);
     opacity: 0;
   }
+}
+.action-library {
+  background-color: var(--activeColor);
 }

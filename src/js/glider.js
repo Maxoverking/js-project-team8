@@ -21,7 +21,7 @@ if (cardsListLibrary !== null) {
 const glide = new Glide('.glide', {
   type: 'slider',
   startAt: 0,
-  perView: 11,
+  perView: 5,
   autoplay: 3000,
   hoverpause: true,
   bound: true,

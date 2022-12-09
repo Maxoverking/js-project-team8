@@ -36,11 +36,14 @@ const paginationMarkup = (arr = [], page = 1) => {
 };
 
 const getArrPageNumbersForView = (currentPage, totalPages) => {
-
-
-
   const buttonsQuantity = totalPages < 9 ? totalPages : 9;
+
   const ArrPageNumbersForView = [];
+
+  // добавил window innerWidth
+  if (window.innerWidth < 768) {
+    buttonsQuantity = 5;
+  }
 
   let start = currentPage - Math.floor(buttonsQuantity / 2);
   let end = currentPage + Math.floor(buttonsQuantity / 2);
@@ -56,14 +59,20 @@ const getArrPageNumbersForView = (currentPage, totalPages) => {
 
   for (let index = start; index <= end; index++) {
     let pageNum = index;
-    if (index === start) pageNum = 1;
-    if (index === end) pageNum = totalPages;
-    if (
-      (index === start + 1 && pageNum != 2) ||
-      (index === end - 1 && pageNum != totalPages - 1)
-    ) {
-      ArrPageNumbersForView.push('...');
-      continue;
+
+    // добавил window.innerWidth
+    if (window.innerWidth > 767) {
+      if (index === start) pageNum = 1;
+      if (index === end) pageNum = totalPages;
+    }
+    if (window.innerWidth > 767) {
+      if (
+        (index === start + 1 && pageNum != 2) ||
+        (index === end - 1 && pageNum != totalPages - 1)
+      ) {
+        ArrPageNumbersForView.push('...');
+        continue;
+      }
     }
     ArrPageNumbersForView.push(pageNum);
   }
@@ -121,6 +130,19 @@ const onPaginationItemClick = async evt => {
   search = fetchObj.query;
   total_pages = fetchObj.total_pages;
   paginationEl.addEventListener('click', onPaginationItemClick);
+
+  // добавил window
+  window.addEventListener(
+    'resize',
+
+    function (event) {
+      paginationEl.innerHTML = paginationMarkup(
+        getArrPageNumbersForView(fetchObj.page, fetchObj.total_pages),
+        fetchObj.page
+      );
+    },
+    true
+  );
 }
 
 export {
