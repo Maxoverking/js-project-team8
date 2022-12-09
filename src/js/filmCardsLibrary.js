@@ -2,6 +2,7 @@ import allGenres from './genres.json';
 import { paginationLibrary } from './pagination-library';
 
 const cardsListLibrary = document.querySelector('.cards__list--library');
+const libraryNotFilm = document.querySelector('#library');
 
 //Функция создания карточки на странице Home
 export default function createCardLibrary(data) {
@@ -31,6 +32,10 @@ export default function createCardLibrary(data) {
   // console.log(markup);
   if (cardsListLibrary) {
     cardsListLibrary.innerHTML = markup;
+  }
+
+if (cardsListLibrary.firstChild === null) {
+    libraryNotFilm.classList.remove('visually-hidden');
   }
 }
 

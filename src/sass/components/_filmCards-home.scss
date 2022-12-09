@@ -100,3 +100,35 @@
         height: 20px;
     }
 }
+
+
+.film__library--not {
+    display: block;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+.film__library--not--title {
+    padding-top: 30px;
+    display: block;
+    color: #FF6B01;
+    line-height: 1.17;
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+.film__library--not--text {
+    font-size: 45px;
+    font-size: 20px;
+    line-height: 1.21px;
+}
+
+.film__library--not--img {
+    margin-top: 30px;
+}
+
+
+
+
