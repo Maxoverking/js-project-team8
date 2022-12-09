@@ -3,6 +3,7 @@ import { paginationLibrary } from './pagination-library';
 import { addRemDataToLocalstorage } from './filmCards-home';
 
 const cardsListLibrary = document.querySelector('.cards__list--library');
+const notFilmlibrary = document.querySelector('#library');
 
 //Функция создания карточки на странице Home
 export default function createCardLibrary(data) {
@@ -33,6 +34,10 @@ export default function createCardLibrary(data) {
   if (cardsListLibrary) {
     cardsListLibrary.innerHTML = markup;
   }
+  if (cardsListLibrary.firstChild === null) {
+    notFilmlibrary.classList.remove('visually-hidden');
+  }
+  
 }
 
 //Функция для отображения года выпуска
