@@ -11,7 +11,7 @@ export default class FetchData {
     this.#params.api_key = this.#API_KEY;
   }
   // возвращает промис запроса на популярные фильмы
-  getTrendingData(page=1) {
+  getTrendingData(page = 1) {
     return axios
       .get(this.#commonURL + this.#trendingPath, {
         params: { ...this.#params, page },

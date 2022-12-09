@@ -7,6 +7,7 @@ import {
 } from './filmCards-home.js';
 import {pagination} from './pagination.js';
 
+
 const cardsList = document.querySelector('.cards__list');
 const movieGalleryFetch = new FetchData();
 const form = document.querySelector('.search-form');

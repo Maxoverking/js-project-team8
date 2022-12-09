@@ -1,6 +1,8 @@
 import allGenres from './genres.json';
 import FetchData from './FetchData.js';
-import pagination from './pagination.js';
+
+import {pagination} from './pagination.js';
+
 
 const cardsListLibrary = document.querySelector('.cards__list--library');
 const cardsList = document.querySelector('.cards__list');
@@ -15,7 +17,7 @@ if (cardsListLibrary !== null) {
     .then(response => {
       console.log('даные которые пришли', response.data);
       insertMarkup(createCard(response.data), cardsList);
-      addRemDataToLocalstorage(response.data);
+        addRemDataToLocalstorage(response.data);
         pagination(response);
     })
     .catch(err => {
@@ -52,9 +54,9 @@ function insertMarkup(htmlMarkup, htmlEl) {
 }
 
 //удаления и сохранения локал сторедж
+
  function addRemDataToLocalstorage(data) {
   localStorage.setItem('allFilmOnPage', JSON.stringify(data));
-}
 
 //Функция для отображения года выпуска
 function createYear(data) {

@@ -12,6 +12,7 @@ const cardsOnPageQuantity = 20;
 let fetchObj = {};
 
 const dataNormalize = data => {
+
   console.log('dataNormalize');
   console.log(data.length);
   total_pages =
@@ -20,15 +21,18 @@ const dataNormalize = data => {
   console.log(total_pages);
 
   return { page: 1, total_pages, data };
+
+
 };
 
 const fetchPage = pageNum => {
   fetchObj.page = pageNum;
-  const data = [...fetchObj.data].slice(
-    (pageNum - 1) * cardsOnPageQuantity,
-    pageNum * cardsOnPageQuantity
-  );
+  const data=[...fetchObj.data].slice(
+      (pageNum - 1) * cardsOnPageQuantity,
+      pageNum * cardsOnPageQuantity
+    )
 
+  
   return {
     ...fetchObj,
     data,
@@ -50,9 +54,8 @@ const onPaginationItemClick = async evt => {
   const paginButtonContent = evt.target.textContent;
   if (!(pageNum = parseInt(paginButtonContent))) pageNum = 1;
   if (paginButtonContent === '...') return;
-  if (evt.target.closest('.arrow')) {
-    pageNum = onArrowClick(evt, currentPage, total_pages);
-  }
+  if (evt.target.closest('.arrow')) pageNum = onArrowClick(evt, currentPage);
+
 
   const data = await fetchPage(pageNum);
   addRemDataToLocalstorage(data.data);
@@ -61,15 +64,18 @@ const onPaginationItemClick = async evt => {
 };
 
 function paginationLibrary(fetchData) {
+
   console.log('paginationLibrary');
+
 
   if (Array.isArray(fetchData)) {
     fetchObj = dataNormalize(fetchData);
   }
-  total_pages = fetchObj.total_pages;
 
   const paginationEl = document.querySelector('#pagination-list');
   console.log('paginationLibrary');
+
+
 
   paginationEl.innerHTML = paginationMarkup(
     getArrPageNumbersForView(fetchObj.page, fetchObj.total_pages),
