@@ -1,6 +1,4 @@
 import createCardLibrary from './filmCardsLibrary.js';
-import { paginationLibrary } from './pagination-library.js';
-import { addRemDataToLocalstorage } from './filmCards-home';
 
 const refs = {
   body: document.querySelector('body'),
@@ -10,7 +8,7 @@ refs.body.addEventListener('click', onClickButton);
 
 function onClickButton(e) {
   if (e.target.hasAttribute('data-addInStorageWantWatch')) {
-    addInQueuehList(e);
+    addInWantWatchList(e);
   }
 
   if (e.target.hasAttribute('data-addinstoragewatched')) {
@@ -25,9 +23,7 @@ function onClickButton(e) {
   }
 }
 
-function addInQueuehList(e) {
-  let filmListWatched =
-    JSON.parse(localStorage.getItem('filmListWatched')) || [];
+function addInWantWatchList(e) {
   // берем ранее сохраненне фильмы из локстор если есть
   let filmListWantWatch =
     JSON.parse(localStorage.getItem('filmListWantWatch')) || [];
@@ -40,7 +36,7 @@ function addInQueuehList(e) {
   let filmIdForBaseWantWatch = filmOnPage.find(film => {
     return film.id === wantWatch;
   });
-
+  console.log('🚀 ~ filmIdForBaseWantWatch', filmIdForBaseWantWatch);
   //сравниваем то что есть в базе "хочу посмотреть" с тем по которому нажали
   let doubleFilm = [];
   doubleFilm = filmListWantWatch.find(film => {
@@ -50,39 +46,17 @@ function addInQueuehList(e) {
   //если совпадение нет, то запушить в массив, иначе удалить из массива
   if (doubleFilm === undefined) {
     filmListWantWatch.push(filmIdForBaseWantWatch);
-    refs.body
-      .querySelector('[data-addInStorageWantWatch]')
-      .classList.add('action-library');
-    refs.body.querySelector('[data-addInStorageWantWatch]').innerHTML =
-      'del from Queue';
   } else {
     filmListWantWatch.forEach((film, index) => {
       if (film.id === doubleFilm.id) {
         filmListWantWatch.splice(index, 1);
-
-        refs.body.querySelector('[data-addInStorageWantWatch]').innerHTML =
-          'add to queue';
-        refs.body
-          .querySelector('[data-addInStorageWantWatch]')
-          .classList.remove('action-library');
       }
     });
   }
   //залить в локал сторадж
-
   localStorage.setItem('filmListWantWatch', JSON.stringify(filmListWantWatch));
-
-  deleteFromLibrary(
-    filmListWatched,
-    wantWatch,
-    'filmListWatched',
-    '[data-addinstoragewatched]',
-    'add to queue'
-  );
 }
 function addInWatchedList(e) {
-  let filmListWantWatch =
-    JSON.parse(localStorage.getItem('filmListWantWatch')) || [];
   // берем ранее сохраненне фильмы из локстор если есть
   let filmListWatched =
     JSON.parse(localStorage.getItem('filmListWatched')) || [];
@@ -105,70 +79,48 @@ function addInWatchedList(e) {
   // //если совпадение нет, то запушить в массив, иначе удалить из массива
   if (doubleFilm === undefined) {
     filmListWatched.push(filmIdForBaseWatched);
-    refs.body
-      .querySelector('[data-addinstoragewatched]')
-      .classList.toggle('action-library');
-    refs.body.querySelector('[data-addinstoragewatched]').innerHTML =
-      'del from Watched';
   } else {
     filmListWatched.forEach((film, index) => {
       if (film.id === doubleFilm.id) {
         filmListWatched.splice(index, 1);
-        refs.body.querySelector('[data-addinstoragewatched]').innerHTML =
-          'add to Watched';
-        refs.body
-          .querySelector('[data-addinstoragewatched]')
-          .classList.remove('action-library');
       }
     });
   }
 
   //залить в локал сторадж
   localStorage.setItem('filmListWatched', JSON.stringify(filmListWatched));
-
-  deleteFromLibrary(
-    filmListWantWatch,
-    watched,
-    'filmListWantWatch',
-    '[data-addInStorageWantWatch]',
-    'add to Watched'
-  );
 }
 
 // рендер фильмов в библиотеке "watched"
 function addInLibraryWatched() {
   refs.body
     .querySelector('[data-render-watched]')
-    .classList.add('action-library');
+    .classList.add('action-liblary');
   refs.body
     .querySelector('[data-render-queue]')
-    .classList.remove('action-library');
+    .classList.remove('action-liblary');
   const rerender = refs.body.querySelector('.cards__list--library');
   rerender.innerHTML = '';
   let filmListWatched =
     JSON.parse(localStorage.getItem('filmListWatched')) || [];
-  addRemDataToLocalstorage(filmListWatched);
   createCardLibrary(filmListWatched);
-  paginationLibrary(filmListWatched);
 }
 // рендер фильмов в библиотеке "queue"
 function addInLibraryQueue() {
   refs.body
     .querySelector('[data-render-watched]')
-    .classList.remove('action-library');
+    .classList.remove('action-liblary');
   refs.body
     .querySelector('[data-render-queue]')
-    .classList.add('action-library');
+    .classList.add('action-liblary');
   const rerender = refs.body.querySelector('.cards__list--library');
   rerender.innerHTML = '';
   let filmListWantWatch =
     JSON.parse(localStorage.getItem('filmListWantWatch')) || [];
-  addRemDataToLocalstorage(filmListWantWatch);
   createCardLibrary(filmListWantWatch);
 }
 // проверка филма в библиотек при открытии модального окна
 export function onOpenModal(id) {
-
   // const addInStorageWantWatch = document.querySelector(
   //   '[data-addInStorageWantWatch]'
   // );
@@ -177,13 +129,12 @@ export function onOpenModal(id) {
   // );
   // addInStorageWantWatch.id = filmClick.id;
   // addInStorageWatched.id = filmClick.id;
-
   refs.body
     .querySelector('[data-addInStorageWantWatch]')
-    .classList.remove('action-library');
+    .classList.remove('action-liblary');
   refs.body
     .querySelector('[data-addinstoragewatched]')
-    .classList.remove('action-library');
+    .classList.remove('action-liblary');
 
   const filmListWatched =
     JSON.parse(localStorage.getItem('filmListWatched')) || [];
@@ -192,32 +143,41 @@ export function onOpenModal(id) {
   if (filmListWatched.find(item => item.id == id)) {
     refs.body
       .querySelector('[data-addinstoragewatched]')
-      .classList.add('action-library');
-    refs.body.querySelector('[data-addinstoragewatched]').innerHTML =
-      'del from Watched';
+      .classList.add('action-liblary');
+
     return;
   }
   if (filmListWantWatch.find(item => item.id == id)) {
     refs.body
       .querySelector('[data-addInStorageWantWatch]')
-      .classList.add('action-library');
-    refs.body.querySelector('[data-addInStorageWantWatch]').innerHTML =
-      'del from Queue';
+      .classList.add('action-liblary');
     return;
   }
 }
+// удаление задвоения в библиотеках
+// function doubleFilmDelete(filmListWatched, filmOnPage, filmIdForBaseWatched) {
+//   // находим совпадение в пришедшем с бекенда и тем фильмом по котрому кликнули
+//   // и записываем в переменную
+//   let filmIdForBaseWatched = filmOnPage.find(film => {
+//     return film.id === watched;
+//   });
+//   //сравниваем то что есть в базе "хочу посмотреть" с тем по которому нажали
+//   let doubleFilm = [];
+//   doubleFilm = filmListWatched.find(film => {
+//     return film.id === filmIdForBaseWatched.id;
+//   });
 
-function deleteFromLibrary(library, id, libraryName, selectorName, buttonName) {
-  library.forEach((film, index) => {
-    if (film.id === id) {
-      library.splice(index, 1);
-      localStorage.setItem(libraryName, JSON.stringify(library));
-      refs.body.querySelector(selectorName).classList.remove('action-library');
-      refs.body.querySelector(selectorName).innerHTML = buttonName;
-    }
-  });
-}
-// начальный рендер библиотеки
+//   //если совпадение нет, то запушить в массив, иначе удалить из массива
+//   if (doubleFilm === undefined) {
+//     filmListWatched.push(filmIdForBaseWatched);
+//   } else {
+//     filmListWatched.forEach((film, index) => {
+//       if (film.id === doubleFilm.id) {
+//         filmListWatched.splice(index, 1);
+//       }
+//     });
+//   }
+// }
 if (refs.body.querySelector('[data-render-watched]')) {
   addInLibraryWatched();
 }
