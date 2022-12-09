@@ -129,7 +129,6 @@ export function onOpenModal(id) {
   // );
   // addInStorageWantWatch.id = filmClick.id;
   // addInStorageWatched.id = filmClick.id;
-  console.log('🚀 ~ onOpenModal');
   refs.body
     .querySelector('[data-addInStorageWantWatch]')
     .classList.remove('action-liblary');
