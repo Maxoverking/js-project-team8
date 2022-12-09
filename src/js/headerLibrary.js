@@ -1,4 +1,5 @@
 import createCardLibrary from './filmCardsLibrary.js';
+import { paginationLibrary } from './pagination-library.js';
 
 const refs = {
   body: document.querySelector('body'),
@@ -104,6 +105,7 @@ function addInLibraryWatched() {
   let filmListWatched =
     JSON.parse(localStorage.getItem('filmListWatched')) || [];
   createCardLibrary(filmListWatched);
+  paginationLibrary(filmListWatched);
 }
 // рендер фильмов в библиотеке "queue"
 function addInLibraryQueue() {
@@ -118,6 +120,7 @@ function addInLibraryQueue() {
   let filmListWantWatch =
     JSON.parse(localStorage.getItem('filmListWantWatch')) || [];
   createCardLibrary(filmListWantWatch);
+  paginationLibrary(filmListWantWatch);
 }
 // проверка филма в библиотек при открытии модального окна
 export function onOpenModal(id) {
