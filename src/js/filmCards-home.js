@@ -52,9 +52,8 @@ function insertMarkup(htmlMarkup, htmlEl) {
 }
 
 //удаления и сохранения локал сторедж
-export function addRemDataToLocalstorage(data) {
-  let allFilms = JSON.stringify(data);
-  localStorage.setItem('allFilmOnPage', allFilms);
+ function addRemDataToLocalstorage(data) {
+  localStorage.setItem('allFilmOnPage', JSON.stringify(data));
 }
 
 //Функция для отображения года выпуска
@@ -78,7 +77,7 @@ function getShortName(string) {
 
 //Функция которая отвечает за жанр
 const { genres } = allGenres;
-export function findGenresOfMovie(ids) {
+ function findGenresOfMovie(ids) {
   const arr = ids.flatMap(id => genres.filter(element => element.id === id));
   let movieGenres = arr.map(el => el.name);
   if (movieGenres.length > 2) {
@@ -93,5 +92,5 @@ export function findGenresOfMovie(ids) {
   return movieGenres.join(', ');
 }
 
-export { createCard, insertMarkup, cardsList, cardsListLibrary };
+export { createCard, insertMarkup,findGenresOfMovie,addRemDataToLocalstorage, cardsList, cardsListLibrary };
 
