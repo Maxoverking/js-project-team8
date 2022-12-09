@@ -1,6 +1,5 @@
-import allGenres from './genres.json';
-
 import createCardLibrary from './filmCardsLibrary';
+import { addRemDataToLocalstorage } from './filmCards-home';
 import {
   onArrowClick,
   getArrPageNumbersForView,
@@ -13,7 +12,17 @@ const cardsOnPageQuantity = 20;
 let fetchObj = {};
 
 const dataNormalize = data => {
-  return { page: 1, total_pages: data.length / cardsOnPageQuantity, data };
+
+  console.log('dataNormalize');
+  console.log(data.length);
+  total_pages =
+    data.length > 1 ? Math.ceil(data.length / cardsOnPageQuantity) : 1;
+  console.log('dataNormalize Math.ceil(data.length / cardsOnPageQuantity)');
+  console.log(total_pages);
+
+  return { page: 1, total_pages, data };
+
+
 };
 
 const fetchPage = pageNum => {
@@ -31,7 +40,10 @@ const fetchPage = pageNum => {
 };
 
 const markupUpdate = obj => {
+  console.log('markupUpdate');
+  console.log(obj.data);
   createCardLibrary(obj.data);
+
   paginationLibrary(fetchObj);
 };
 
@@ -46,17 +58,22 @@ const onPaginationItemClick = async evt => {
 
 
   const data = await fetchPage(pageNum);
+  addRemDataToLocalstorage(data.data);
   markupUpdate(data);
   //window.scrollTo(0, 0);
 };
 
 function paginationLibrary(fetchData) {
 
+  console.log('paginationLibrary');
+
+
   if (Array.isArray(fetchData)) {
     fetchObj = dataNormalize(fetchData);
   }
 
   const paginationEl = document.querySelector('#pagination-list');
+  console.log('paginationLibrary');
 
 
 
