@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 import axios from 'axios';
 export default class FetchData {
   #API_KEY = '22fa368820f7f9af3c30ea0e6b34461d';
@@ -12,16 +12,18 @@ export default class FetchData {
   }
   // возвращает промис запроса на популярные фильмы
   getTrendingData(page = 1) {
-    return axios
-      .get(this.#commonURL + this.#trendingPath, {
-        params: { ...this.#params, page },
-        transformResponse: transformResponseFunc,
-      })
-      //.then(res=>console.log(res))
-      .then(pruningResponse)
-      .catch(e => {
-        console.log('getTrendingData ERROR - ' + e.message); // написать middleware для обработки ошибок и вывода их в HEADER
-      });
+    return (
+      axios
+        .get(this.#commonURL + this.#trendingPath, {
+          params: { ...this.#params, page },
+          transformResponse: transformResponseFunc,
+        })
+        //.then(res=>console.log(res))
+        .then(pruningResponse)
+        .catch(e => {
+          console.log('getTrendingData ERROR - ' + e.message); // написать middleware для обработки ошибок и вывода их в HEADER
+        })
+    );
   }
 
   // возвращает промис запроса на фильмы по поиску
@@ -36,7 +38,6 @@ export default class FetchData {
         console.log('getSearchData ERROR - ' + e.message); // написать middleware для обработки ошибок и вывода их в HEADER
       });
   }
-
 }
 
 function transformResponseFunc(response) {
@@ -56,7 +57,7 @@ function transformResponseFunc(response) {
     response.results.data = [];
   }
 
-  return  results ;
+  return results;
 }
 
 function pruningResponse(res) {
@@ -70,4 +71,3 @@ function pruningResponse(res) {
     query: res.config.params.query,
   };
 }
-
