@@ -212,19 +212,9 @@
 .modal-about__text {
     text-align: left;
     font-weight: 500;
+    font-size: 12px;
     line-height: 1.66;
-    
-    @media (min-width: 768px) {
-            max-height: 150px;
-            overflow-y: auto;
-        }
-    
-
-    @media (min-width: 1280px) {
-        max-height: 300px;
-            overflow-y: auto;
-        
-        }
+  
     }
 
 .buttons {
