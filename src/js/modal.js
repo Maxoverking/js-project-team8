@@ -1,5 +1,6 @@
 import { onOpenModal, refreshLibrary } from './headerLibrary';
 import allGenres from './genres.json';
+import trailer from './trailer.js';
 
 const cardsListLibrary = document.querySelector('.cards__list--library');
 
@@ -44,6 +45,7 @@ export function onClick(evt) {
 
   filmClick = {};
   const id = evt.path[1].parentElement.id;
+  trailer.createTrailerLink(id)
   searchId(id);
 
   if (Object.keys(filmClick).length === 0) {

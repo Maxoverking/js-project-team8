@@ -11,6 +11,7 @@ import './js/functionSearch.js';
 import './js/scroll-top.js';
 import './js/loader.js';
 import './js/glider.js';
+import './js/trailer.js';
 
 //Это пример его раскоментить посмотреть что приходит
 
