@@ -163,6 +163,16 @@ function addInLibraryQueue() {
 }
 // проверка филма в библиотек при открытии модального окна
 export function onOpenModal(id) {
+
+  // const addInStorageWantWatch = document.querySelector(
+  //   '[data-addInStorageWantWatch]'
+  // );
+  // const addInStorageWatched = document.querySelector(
+  //   '[data-addInStorageWatched]'
+  // );
+  // addInStorageWantWatch.id = filmClick.id;
+  // addInStorageWatched.id = filmClick.id;
+
   refs.body
     .querySelector('[data-addInStorageWantWatch]')
     .classList.remove('action-library');
