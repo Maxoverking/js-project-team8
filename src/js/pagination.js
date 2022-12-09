@@ -40,7 +40,7 @@ const paginationMarkup = (arr = [], page = 1) => {
 };
 
 const getArrPageNumbersForView = (currentPage, totalPages) => {
-  const buttonsQuantity = totalPages < 9 ? totalPages : 9;
+  let buttonsQuantity = totalPages < 9 ? totalPages : 9;
   const ArrPageNumbersForView = [];
 
   // добавил window innerWidth

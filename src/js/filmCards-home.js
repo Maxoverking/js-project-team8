@@ -13,7 +13,7 @@ if (cardsListLibrary !== null) {
   movieGalleryFetch
     .getTrendingData()
     .then(response => {
-      console.log('даные которые пришли', response.data);
+      // console.log('даные которые пришли', response.data);
       insertMarkup(createCard(response.data), cardsList);
       addRemDataToLocalstorage(response.data);
       pagination(response);
