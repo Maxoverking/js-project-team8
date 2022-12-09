@@ -1,6 +1,6 @@
 import allGenres from './genres.json';
 import FetchData from './FetchData.js';
-import {pagination} from './pagination';
+import pagination from './pagination.js';
 
 const cardsListLibrary = document.querySelector('.cards__list--library');
 const cardsList = document.querySelector('.cards__list');

@@ -1,7 +1,7 @@
 import Notiflix from 'notiflix';
 import FetchData from './FetchData.js';
 import {createCard} from './filmCards-home.js';
-import {pagination} from './pagination.js';
+import pagination from './pagination.js';
 
 const cardsList = document.querySelector('.cards__list');
 const movieGalleryFetch = new FetchData();
