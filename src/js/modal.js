@@ -2,6 +2,7 @@ import { onOpenModal } from './headerLibrary';
 import allGenres from './genres.json';
 
 const cardsListLibrary = document.querySelector('.cards__list--library');
+const btnScrollTopModalLogic = document.querySelector(".scroll__top");
 
 
 const list = document.querySelector('.cards__list');
@@ -46,6 +47,11 @@ if (cardsListLibrary === null) {
 // location.pathname === '/library.html'
 // передача данных
 export function onClick(evt) {
+  if (btnScrollTopModalLogic.classList.contains('scroll__top--show')) {
+    btnScrollTopModalLogic.classList.remove('scroll__top--show');
+  }
+
+
   filmClick = {};
   const id = evt.path[1].parentElement.id;
   searchId(id);
