@@ -45,7 +45,7 @@ const getArrPageNumbersForView = (currentPage, totalPages) => {
 
   // добавил window innerWidth
   if (window.innerWidth < 768) {
-    buttonsQuantity = 5;
+    buttonsQuantity = totalPages < 5 ? totalPages : 5;
   }
 
   let start = currentPage - Math.floor(buttonsQuantity / 2);
