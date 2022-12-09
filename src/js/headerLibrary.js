@@ -1,5 +1,6 @@
 import createCardLibrary from './filmCardsLibrary.js';
 import { paginationLibrary } from './pagination-library.js';
+import { addRemDataToLocalstorage } from './filmCards-home';
 
 const refs = {
   body: document.querySelector('body'),
@@ -104,6 +105,7 @@ function addInLibraryWatched() {
   rerender.innerHTML = '';
   let filmListWatched =
     JSON.parse(localStorage.getItem('filmListWatched')) || [];
+  addRemDataToLocalstorage(filmListWatched);
   createCardLibrary(filmListWatched);
   paginationLibrary(filmListWatched);
 }
@@ -119,6 +121,7 @@ function addInLibraryQueue() {
   rerender.innerHTML = '';
   let filmListWantWatch =
     JSON.parse(localStorage.getItem('filmListWantWatch')) || [];
+  addRemDataToLocalstorage(filmListWantWatch);
   createCardLibrary(filmListWantWatch);
   paginationLibrary(filmListWantWatch);
 }
@@ -132,7 +135,6 @@ export function onOpenModal(id) {
   // );
   // addInStorageWantWatch.id = filmClick.id;
   // addInStorageWatched.id = filmClick.id;
-  console.log('🚀 ~ onOpenModal');
   refs.body
     .querySelector('[data-addInStorageWantWatch]')
     .classList.remove('action-liblary');

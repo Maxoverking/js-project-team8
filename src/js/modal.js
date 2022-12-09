@@ -3,6 +3,7 @@ import allGenres from './genres.json';
 
 const cardsListLibrary = document.querySelector('.cards__list--library');
 
+
 const list = document.querySelector('.cards__list');
 const modal = document.querySelector('[data-modal]');
 const modalMarkup = document.querySelector('.modal__info');
@@ -30,6 +31,8 @@ function toggleModal() {
   backdrop.removeEventListener('click', onClickClose);
   // очищаем html модалки(кроме кнопок и кнопки закрытия)
   clearModarMarkup();
+
+
 }
 
 // console.log("🚀  location.pathname", location.pathname);
@@ -43,16 +46,22 @@ if (cardsListLibrary === null) {
 // location.pathname === '/library.html'
 // передача данных
 export function onClick(evt) {
+  filmClick = {};
   const id = evt.path[1].parentElement.id;
-  console.log(id);
   searchId(id);
-  toggleModal();
 
-  // рисуем разметку модалки при открытии
-  createModaMarckup(filmClick);
-  onOpenModal(filmClick.id);
-  window.addEventListener('keydown', onEscapeClose);
-  backdrop.addEventListener('click', onClickClose);
+  if (Object.keys(filmClick).length === 0) {
+    return
+  } else {
+    toggleModal();
+    // рисуем разметку модалки при открытии
+
+
+    createModaMarckup(filmClick);
+    onOpenModal(filmClick.id);
+    window.addEventListener('keydown', onEscapeClose);
+    backdrop.addEventListener('click', onClickClose);
+  }
 }
 
 // функция поиска данных фильма
@@ -137,10 +146,16 @@ function createModaMarckup(obj) {
   // modalMarkup.innerHTML += markup;
 
   modalMarkup.insertAdjacentHTML('afterbegin', markup);
+
+
 }
+
+
+
 
 function clearModarMarkup() {
   modalMarkup.innerHTML = '';
+
 }
 
 const { genres } = allGenres;

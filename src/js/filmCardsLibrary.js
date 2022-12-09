@@ -1,5 +1,6 @@
 import allGenres from './genres.json';
 import { paginationLibrary } from './pagination-library';
+import { addRemDataToLocalstorage } from './filmCards-home';
 
 const cardsListLibrary = document.querySelector('.cards__list--library');
 
