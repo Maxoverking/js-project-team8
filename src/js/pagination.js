@@ -13,7 +13,6 @@ const paginationMarkup = (arr = [], page = 1) => {
     return '';
   }
   const currentPage = (arrItem, page) => (arrItem === page ? 'current' : '');
-
   return [
     `<li class="pagination-list__item">
     <button class="pagination-list__button arrow" data-left_one_page>
@@ -41,7 +40,7 @@ const paginationMarkup = (arr = [], page = 1) => {
 
 const getArrPageNumbersForView = (currentPage, totalPages) => {
   let buttonsQuantity = totalPages < 9 ? totalPages : 9;
-  const ArrPageNumbersForView = [];
+  const arrPageNumbersForView = [];
 
   // добавил window innerWidth
   if (window.innerWidth < 768) {
@@ -73,13 +72,13 @@ const getArrPageNumbersForView = (currentPage, totalPages) => {
         (index === start + 1 && pageNum != 2) ||
         (index === end - 1 && pageNum != totalPages - 1)
       ) {
-        ArrPageNumbersForView.push('...');
+        arrPageNumbersForView.push('...');
         continue;
       }
     }
-    ArrPageNumbersForView.push(pageNum);
+    arrPageNumbersForView.push(pageNum);
   }
-  return ArrPageNumbersForView;
+  return arrPageNumbersForView;
 };
 
 const markupUpdate = (obj, htmlEl) => {
