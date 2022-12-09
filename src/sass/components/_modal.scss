@@ -146,6 +146,7 @@
     font-size: 12px;
     line-height: 1.33;
     color: var(--modalCardCharacterFilm);
+    
 
     @media (min-width: 1280px) {
             padding-right: 83px;
@@ -212,9 +213,17 @@
     text-align: left;
     font-weight: 500;
     line-height: 1.66;
-
+    
     @media (min-width: 768px) {
-            height: 100%;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+    
+
+    @media (min-width: 1280px) {
+        max-height: 300px;
+            overflow-y: auto;
+        
         }
     }
 
