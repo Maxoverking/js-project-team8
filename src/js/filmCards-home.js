@@ -5,6 +5,8 @@ import { pagination } from './pagination';
 const cardsListLibrary = document.querySelector('.cards__list--library');
 const cardsList = document.querySelector('.cards__list');
 
+
+
 const movieGalleryFetch = new FetchData();
 // Получаем данные
 if (cardsListLibrary !== null) {
