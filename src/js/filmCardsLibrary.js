@@ -34,9 +34,9 @@ export default function createCardLibrary(data) {
   if (cardsListLibrary) {
     cardsListLibrary.innerHTML = markup;
   }
-  if (cardsListLibrary.firstChild === null) {
-    notFilmlibrary.classList.remove('visually-hidden');
-  }
+  // if (cardsListLibrary.firstChild === null) {
+  //   notFilmlibrary.classList.remove('visually-hidden');
+  // }
   
 }
 
