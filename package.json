@@ -17,10 +17,10 @@
   "bugs": {
     "url": "https://github.com/goitacademy/parcel-project-template/issues"
   },
-"dependencies": {
+  "dependencies": {
     "@glidejs/glide": "^3.6.0",
+    "autoprefixer": "^10.4.13",
     "axios": "^1.2.0",
-    "handlebars": "^4.7.7",
     "modern-normalize": "^1.1.0",
     "notiflix": "^3.2.5"
   },
