@@ -71,3 +71,4 @@ function pruningResponse(res) {
     query: res.config.params.query,
   };
 }
+
