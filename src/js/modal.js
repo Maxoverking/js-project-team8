@@ -4,11 +4,13 @@ import allGenres from './genres.json';
 const cardsListLibrary = document.querySelector('.cards__list--library');
 
 const list = document.querySelector('.cards__list');
+// const cardsItem = document.querySelector('.cards__item');
 const modal = document.querySelector('[data-modal]');
 const modalMarkup = document.querySelector('.modal__info');
 const backdrop = document.querySelector('.backdrop');
 
 const closeModalBtn = document.querySelector('[data-modal-close]');
+
 const poster = document.querySelector('.poster');
 
 //данные фильма открытого в модалки
@@ -41,10 +43,12 @@ if (cardsListLibrary === null) {
 // location.pathname === '/library.html'
 // передача данных
 export function onClick(evt) {
-
   filmClick = {};
-  const id = evt.path[1].parentElement.id;
-  searchId(id);
+  const anyElemDom = evt.target.parentNode;
+  const getId = anyElemDom.parentNode.id;
+  searchId(getId);
+
+  // const id = evt.path[1].parentElement.id;
 
   if (Object.keys(filmClick).length === 0) {
     return;
